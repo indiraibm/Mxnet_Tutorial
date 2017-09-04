@@ -32,7 +32,7 @@ def FashionMNIST(batch_size):
 
 
 #evaluate the data
-def generate_image(data_iterator , num_inputs , network , ctx ):
+def generate_image(data_iterator , num_inputs , network , ctx , dataset):
 
     for data, label in data_iterator:
 
@@ -44,23 +44,45 @@ def generate_image(data_iterator , num_inputs , network , ctx ):
         '''test'''
         column_size=10 ; row_size=10 #     column_size x row_size <= 10000
 
-        '''generator image visualization'''
-        fig_g, ax_g = plt.subplots(row_size, column_size, figsize=(column_size, row_size))
-        fig_g.suptitle('generator')
-        for j in range(row_size):
-            for i in range(column_size):
-                ax_g[j][i].set_axis_off()
-                ax_g[j][i].imshow(np.reshape(output[i + j * column_size], (28, 28)), cmap='gray')
+        if not os.path.exists("Generate_Image"):
+            os.makedirs("Generate_Image")
 
-        fig_g.savefig("generator.png")
-        '''real image visualization'''
-        fig_r, ax_r = plt.subplots(row_size, column_size, figsize=(column_size, row_size))
-        fig_r.suptitle('real')
-        for j in range(row_size):
-            for i in range(column_size):
-                ax_r[j][i].set_axis_off()
-                ax_r[j][i].imshow(np.reshape(data[i + j * column_size],(28,28)), cmap='gray')
-        fig_r.savefig("real.png")
+        if dataset == "MNIST":
+            fig_g, ax_g = plt.subplots(row_size, column_size, figsize=(column_size, row_size))
+            fig_g.suptitle('MNIST_generator')
+            for j in range(row_size):
+                for i in range(column_size):
+                    ax_g[j][i].set_axis_off()
+                    ax_g[j][i].imshow(np.reshape(output[i + j * column_size], (28, 28)), cmap='gray')
+            fig_g.savefig("Generate_Image/MNIST_generator.png")
+
+            '''real image visualization'''
+            fig_r, ax_r = plt.subplots(row_size, column_size, figsize=(column_size, row_size))
+            fig_r.suptitle('MNIST_real')
+            for j in range(row_size):
+                for i in range(column_size):
+                    ax_r[j][i].set_axis_off()
+                    ax_r[j][i].imshow(np.reshape(data[i + j * column_size], (28, 28)), cmap='gray')
+            fig_r.savefig("Generate_Image/MNIST_real.png")
+
+        elif dataset == "FashionMNIST":
+            fig_g, ax_g = plt.subplots(row_size, column_size, figsize=(column_size, row_size))
+            fig_g.suptitle('FashionMNIST_generator')
+            for j in range(row_size):
+                for i in range(column_size):
+                    ax_g[j][i].set_axis_off()
+                    ax_g[j][i].imshow(np.reshape(output[i + j * column_size], (28, 28)), cmap='gray')
+            fig_g.savefig("Generate_Image/FashionMNIST_generator.png")
+
+            '''real image visualization'''
+            fig_r, ax_r = plt.subplots(row_size, column_size, figsize=(column_size, row_size))
+            fig_r.suptitle('FashionMNIST_real')
+            for j in range(row_size):
+                for i in range(column_size):
+                    ax_r[j][i].set_axis_off()
+                    ax_r[j][i].imshow(np.reshape(data[i + j * column_size], (28, 28)), cmap='gray')
+            fig_r.savefig("Generate_Image/FashionMNIST_real.png")
+
         plt.show()
 
 
@@ -194,7 +216,7 @@ def Autoencoder(epoch = 100 , batch_size=10, save_period=10 , load_period=100 , 
                 nd.save("weights/FashionMNIST_weights-{}".format(i),params)
 
     #show image
-    generate_image(test_data , num_inputs , network , ctx )
+    generate_image(test_data , num_inputs , network , ctx  ,dataset)
 
     return "optimization completed"
 

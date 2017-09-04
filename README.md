@@ -137,18 +137,18 @@ print mx.asnumpy(out)
 
         * [***Fully Neural Network with NDArray : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Fully_Neural_Network_with_NDArray)
 
+        * [***Convolution Neural Network with NDArray : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Convolution_Neural_Network_with_NDArray)
+
         * [***Autoencoder Neural Networks with NDArray : Using the MNIST and Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Autoencoder_Neural_Network_with_NDArray)
 
-        * [***Convolution Autoencoder Neural Networks with NDArray : Using CIFAR10 data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Convolution_Autoencoder_Neural_Network_with_NDArray)
-
-        * [***Convolution Neural Network with NDArray : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Convolution_Neural_Network_with_NDArray)
+        * [***Convolution Autoencoder Neural Networks with NDArray : Using the MNIST and Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Convolution_Autoencoder_Neural_Network_with_NDArray)
 
         * [***Recurrent Neural Network with NDArray : Classifying the MNIST and Fashion MNIST data - not yet***]()
 
 * ### ***Neural Networks With <NDArray.API + Gluon Package + Autograd Package>***
 
     ```python
-    The gluon package is different from mxnet-symbolic coding.
+    The Gluon package is different from mxnet-symbolic coding.
     It is imperactive coding and focuses on mxnet with NDArray and Gluon.
     ```
 
@@ -158,11 +158,11 @@ print mx.asnumpy(out)
 
         * [***Fully Neural Network with Gluon : Classifying the MNIST , CIFAR10 , Fashion_MNIST data - not yet***]()
 
+        * [***Convolution Neural Network with Gluon : Classifying the MNIST , CIFAR10 , Fashion_MNIST data - not yet***]()
+
         * [***Autoencoder Neural Networks with Gluon : Using the MNIST and Fashion_MNIST data - not yet***]()
 
-        * [***Convolution Autoencoder Neural Networks with Gluon : Using CIFAR10 data - not yet***]()
-
-        * [***Convolution Neural Network with Gluon : Classifying the MNIST , CIFAR10 , Fashion_MNIST data - not yet***]()
+        * [***Convolution Autoencoder Neural Networks with Gluon : Using the MNIST and Fashion_MNIST data - not yet***]()
 
         * [***Recurrent Neural Network with Gluon : Classifying the MNIST and Fashion MNIST data - not yet***]()
         
