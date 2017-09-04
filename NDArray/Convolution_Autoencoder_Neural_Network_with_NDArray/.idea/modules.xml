@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/FNN_with_Gluon.iml" filepath="$PROJECT_DIR$/.idea/FNN_with_Gluon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Convolution_Autoencoder_Neural_Network_with_NDArray.iml" filepath="$PROJECT_DIR$/.idea/Convolution_Autoencoder_Neural_Network_with_NDArray.iml" />
     </modules>
   </component>
 </project>

@@ -21,6 +21,16 @@ def MNIST(batch_size):
 
     return train_data , test_data
 
+#MFashionNIST dataset
+def FashionMNIST(batch_size):
+
+    #transform = lambda data, label: (data.astype(np.float32) / 255.0 , label) # data normalization
+    train_data = gluon.data.DataLoader(gluon.data.vision.FashionMNIST(root="FashionMNIST" , train = True , transform = transform) , batch_size , shuffle=True , last_batch="rollover") #Loads data from a dataset and returns mini-batches of data.
+    test_data = gluon.data.DataLoader(gluon.data.vision.FashionMNIST(root="FashionMNIST" , train = False , transform = transform) ,10000 , shuffle=False) #Loads data from a dataset and returns mini-batches of data.
+
+    return train_data , test_data
+
+
 #evaluate the data
 def generate_image(data_iterator , num_inputs , network , ctx ):
 
@@ -60,6 +70,8 @@ def Autoencoder(epoch = 100 , batch_size=10, save_period=10 , load_period=100 , 
     #data selection
     if dataset =="MNIST":
         train_data , test_data = MNIST(batch_size)
+    elif dataset == "FashionMNIST":
+        train_data, test_data = FashionMNIST(batch_size)
     else:
         return "The dataset does not exist."
 
@@ -81,7 +93,8 @@ def Autoencoder(epoch = 100 , batch_size=10, save_period=10 , load_period=100 , 
 
     if dataset == "MNIST":
         path = "weights/MNIST_weights-{}".format(load_period)
-
+    elif dataset == "FashionMNIST":
+        path = "weights/FashionMNIST_weights-{}".format(load_period)
 
     if os.path.exists(path):
         print("loading weights")
@@ -177,6 +190,8 @@ def Autoencoder(epoch = 100 , batch_size=10, save_period=10 , load_period=100 , 
             print("saving weights")
             if dataset=="MNIST":
                 nd.save("weights/MNIST_weights-{}".format(i),params)
+            elif dataset=="FashionMNIST":
+                nd.save("weights/FashionMNIST_weights-{}".format(i),params)
 
     #show image
     generate_image(test_data , num_inputs , network , ctx )

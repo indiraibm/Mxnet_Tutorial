@@ -117,7 +117,7 @@ def Generator(relu ='relu',tanh='tanh',fix_gamma=True,eps=1e-5 + 1e-12,no_bias=T
     but it was just the opposite of convolution.
     The formula is as follows.
 
-    The convolution formula is  output_size = (input_size+2*pad-kernel_size/stride)
+    The convolution formula is  output_size = (input_size+2*pad-kernel_size/stride) + 1
 
     The Deconvolution formula is output_size = stride(input_size-1)+kernel-2*pad
 

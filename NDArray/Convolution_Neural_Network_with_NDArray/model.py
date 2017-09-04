@@ -7,7 +7,7 @@ from tqdm import *
 import os
 
 def transform(data, label):
-    return data.astype(np.float32)/255, label.astype(np.float32)
+    return nd.transpose(data.astype(np.float32), (2,0,1))/255.0, label.astype(np.float32)
 
 #MNIST dataset
 def MNIST(batch_size):
@@ -17,6 +17,16 @@ def MNIST(batch_size):
     test_data = gluon.data.DataLoader(gluon.data.vision.MNIST(root="MNIST", train = False , transform = transform) ,10000 , shuffle=False) #Loads data from a dataset and returns mini-batches of data.
 
     return train_data , test_data
+
+#MFashionNIST dataset
+def FashionMNIST(batch_size):
+
+    #transform = lambda data, label: (data.astype(np.float32) / 255.0 , label) # data normalization
+    train_data = gluon.data.DataLoader(gluon.data.vision.FashionMNIST(root="FashionMNIST" , train = True , transform = transform) , batch_size , shuffle=True , last_batch="rollover") #Loads data from a dataset and returns mini-batches of data.
+    test_data = gluon.data.DataLoader(gluon.data.vision.FashionMNIST(root="FashionMNIST" , train = False , transform = transform) ,10000 , shuffle=False) #Loads data from a dataset and returns mini-batches of data.
+
+    return train_data , test_data
+
 
 #CIFAR10 dataset
 def CIFAR10(batch_size):
@@ -33,8 +43,7 @@ def evaluate_accuracy(data_iterator , network , ctx):
     denominator = 0
 
     for data, label in data_iterator:
-        
-        data=nd.transpose(data=data , axes=(0,3,1,2))
+
         data = data.as_in_context(ctx)
         label = label.as_in_context(ctx)
         output = network(data)
@@ -55,11 +64,14 @@ def CNN(epoch = 100 , batch_size=10, save_period=10 , load_period=100 , weight_d
         train_data , test_data = MNIST(batch_size)
     elif dataset == "CIFAR10":
         train_data, test_data = CIFAR10(batch_size)
+    elif dataset == "FashionMNIST":
+        train_data, test_data = FashionMNIST(batch_size)
     else:
         return "The dataset does not exist."
 
+
     # data structure
-    if dataset == "MNIST":
+    if dataset == "MNIST" or dataset =="FashionMNIST":
         color = 1
     elif dataset == "CIFAR10":
         color = 3
@@ -67,6 +79,8 @@ def CNN(epoch = 100 , batch_size=10, save_period=10 , load_period=100 , weight_d
 
     if dataset == "MNIST":
         path = "weights/MNIST_weights-{}".format(load_period)
+    elif dataset == "FashionMNIST":
+        path = "weights/FashionMNIST_weights-{}".format(load_period)
     elif dataset == "CIFAR10":
         path = "weights/CIFAR10_weights-{}".format(load_period)
 
@@ -96,7 +110,7 @@ def CNN(epoch = 100 , batch_size=10, save_period=10 , load_period=100 , weight_d
 
         if dataset == "CIFAR10":
             reshape=750
-        elif dataset == "MNIST":
+        elif dataset == "MNIST" or dataset == "FashionMNIST":
             reshape=480
 
         W3 = nd.random_normal(loc=0 , scale=0.1 , shape=(120, reshape) , ctx=ctx)
@@ -125,7 +139,7 @@ def CNN(epoch = 100 , batch_size=10, save_period=10 , load_period=100 , weight_d
 
     def network(X,drop_rate=0.0): # formula : output_size=((input−weights+2*Padding)/Stride)+1
         #data size 
-        # MNIST = (batch size , 1 , 28 ,  28)
+        # MNIST,FashionMNIST = (batch size , 1 , 28 ,  28)
         # CIFAR = (batch size , 3 , 32 ,  32)
 
         C_H1=nd.Activation(data= nd.Convolution(data=X , weight = W1 , bias = B1 , kernel=(3,3) , stride=(1,1)  , num_filter=60) , act_type="relu") # MNIST : result = ( batch size , 60 , 26 , 26) , CIFAR10 : : result = ( batch size , 60 , 30 , 30) 
@@ -156,7 +170,6 @@ def CNN(epoch = 100 , batch_size=10, save_period=10 , load_period=100 , weight_d
 
     for i in tqdm(range(1,epoch+1,1)):
         for data,label in train_data:
-            data=nd.transpose(data=data , axes=(0,3,1,2))
             data = data.as_in_context(ctx)
             label = label.as_in_context(ctx)
             label = nd.one_hot(label , num_outputs)
@@ -184,6 +197,9 @@ def CNN(epoch = 100 , batch_size=10, save_period=10 , load_period=100 , weight_d
 
             elif dataset=="CIFAR10":
                 nd.save("weights/CIFAR10_weights-{}".format(i),params)
+
+            elif dataset=="FashionMNIST":
+                nd.save("weights/FashionMNIST_weights-{}".format(i),params)
 
     test_accuracy = evaluate_accuracy(test_data , network , ctx)
     print("Test_acc : {}".format(test_accuracy))

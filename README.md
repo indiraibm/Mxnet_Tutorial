@@ -119,15 +119,15 @@ print mx.asnumpy(out)
 
     * `The following LINK is a tutorial on the [gluon page](http://gluon.mxnet.io/index.html)  official homepage
 
-        * [***Multiclass logistic regression with NDArray : Classifying the MNIST , CIFAR10 , Fashion_MNIST(not yet) data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Multiclass_logistic_regression_with_NDArray)
+        * [***Multiclass logistic regression with NDArray : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Multiclass_logistic_regression_with_NDArray)
 
-        * [***Fully Neural Network with NDArray : Classifying the MNIST , CIFAR10 , Fashion_MNIST(not yet) data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Fully_Neural_Network_with_NDArray)
+        * [***Fully Neural Network with NDArray : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Fully_Neural_Network_with_NDArray)
 
-        * [***Autoencoder Neural Networks with NDArray : Using the MNIST and Fashion_MNIST(not yet) data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Autoencoder_Neural_Network_with_NDArray)
+        * [***Autoencoder Neural Networks with NDArray : Using the MNIST and Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Autoencoder_Neural_Network_with_NDArray)
 
         * [***Convolution Autoencoder Neural Networks with NDArray : Using CIFAR10 data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Convolution_Autoencoder_Neural_Network_with_NDArray)
 
-        * [***Convolution Neural Network with NDArray : Classifying the MNIST AND Fashion_MNIST(not yet) data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Convolution_Neural_Network_with_NDArray)
+        * [***Convolution Neural Network with NDArray : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Convolution_Neural_Network_with_NDArray)
 
         * [***Recurrent Neural Network with NDArray : Classifying the MNIST and Fashion MNIST data - not yet***]()
 
@@ -140,19 +140,18 @@ print mx.asnumpy(out)
 
     * `The following LINK is a tutorial on the [gluon page](http://gluon.mxnet.io/index.html)  official homepage
 
-        * [***Multiclass logistic regression with Gluon : Classifying the MNIST , CIFAR10 , Fashion_MNIST(not yet) data***]()
+        * [***Multiclass logistic regression with Gluon : Classifying the MNIST , CIFAR10 , Fashion_MNIST data-not yet***]()
 
-        * [***Fully Neural Network with Gluon : Classifying the MNIST , CIFAR10 , Fashion_MNIST(not yet) data***]()
+        * [***Fully Neural Network with Gluon : Classifying the MNIST , CIFAR10 , Fashion_MNIST data - not yet***]()
 
-        * [***Autoencoder Neural Networks with Gluon : Using the MNIST and Fashion_MNIST(not yet) data***]()
+        * [***Autoencoder Neural Networks with Gluon : Using the MNIST and Fashion_MNIST data - not yet***]()
 
-        * [***Convolution Autoencoder Neural Networks with Gluon : Using CIFAR10 data***]()
+        * [***Convolution Autoencoder Neural Networks with Gluon : Using CIFAR10 data - not yet***]()
 
-        * [***Convolution Neural Network with Gluon : Classifying the MNIST AND Fashion_MNIST(not yet) data***]()
+        * [***Convolution Neural Network with Gluon : Classifying the MNIST , CIFAR10 , Fashion_MNIST data - not yet***]()
 
         * [***Recurrent Neural Network with Gluon : Classifying the MNIST and Fashion MNIST data - not yet***]()
         
-    
 * ### ***Neural Networks Applications***
 
     * [***Predicting lotto numbers in regression analysis using Gluon - not yet***]()
@@ -166,10 +165,10 @@ print mx.asnumpy(out)
 * IDE : `pycharm Community Edition 2017.2.2 or visual studio code`
 
 >## ***Dependencies*** 
-* mxnet-0.11.0
-* numpy-1.12.1, matplotlib-2.0.1 , tensorboard-1.0.0a7(linux) , graphviz -> (`Visualization`)
-* opencv-3.2.0(window) , opencv-3.1.0(linux) , struct , gzip , os , glob , threading -> (`Data preprocessing`)
-* cPickle -> (`Data save and restore`)
+* mxnet-0.11.1
+* numpy-1.12.1, matplotlib-2.0.0 , tensorboard-1.0.0a7(linux) , graphviz -> (`Visualization`)
+* opencv-3.1.0(window) , opencv-3.1.0(linux) , struct , gzip , os , glob , threading -> (`Data preprocessing`)
+* Pickle -> (`Data save and restore`)
 * logging -> (`Observation during learning`)
 * argparse -> (`Command line input from user`)
 * urllib , requests -> (`Web crawling`) 

@@ -27,6 +27,15 @@ def CIFAR10(batch_size):
 
     return train_data , test_data
 
+#MFashionNIST dataset
+def FashionMNIST(batch_size):
+
+    #transform = lambda data, label: (data.astype(np.float32) / 255.0 , label) # data normalization
+    train_data = gluon.data.DataLoader(gluon.data.vision.FashionMNIST(root="FashionMNIST" , train = True , transform = transform) , batch_size , shuffle=True , last_batch="rollover") #Loads data from a dataset and returns mini-batches of data.
+    test_data = gluon.data.DataLoader(gluon.data.vision.FashionMNIST(root="FashionMNIST" , train = False , transform = transform) ,10000 , shuffle=False) #Loads data from a dataset and returns mini-batches of data.
+
+    return train_data , test_data
+
 #evaluate the data
 def evaluate_accuracy(data_iterator , num_inputs , network , ctx , dataset):
 
@@ -58,11 +67,13 @@ def muitlclass_logistic_regression(epoch = 100 , batch_size=10, save_period=10 ,
         train_data , test_data = MNIST(batch_size)
     elif dataset == "CIFAR10":
         train_data, test_data = CIFAR10(batch_size)
+    elif dataset == "FashionMNIST":
+        train_data, test_data = FashionMNIST(batch_size)
     else:
         return "The dataset does not exist."
 
     # data structure
-    if dataset == "MNIST":
+    if dataset == "MNIST" or dataset == "FashionMNIST":
         num_inputs = 28 * 28
     elif dataset == "CIFAR10":
         num_inputs = 32 * 32
@@ -70,6 +81,8 @@ def muitlclass_logistic_regression(epoch = 100 , batch_size=10, save_period=10 ,
 
     if dataset == "MNIST":
         path = "weights/MNIST_weights-{}".format(load_period)
+    elif dataset == "FashionMNIST":
+        path = "weights/FashionMNIST_weights-{}".format(load_period)
     elif dataset == "CIFAR10":
         path = "weights/CIFAR10_weights-{}".format(load_period)
 
@@ -133,6 +146,9 @@ def muitlclass_logistic_regression(epoch = 100 , batch_size=10, save_period=10 ,
 
             elif dataset=="CIFAR10":
                 nd.save("weights/CIFAR10_weights-{}".format(i),params)
+
+            elif dataset=="FashionMNIST":
+                nd.save("weights/FashionMNIST_weights-{}".format(i),params)
 
     test_accuracy = evaluate_accuracy(test_data , num_inputs , network , ctx , dataset)
     print("Test_acc : {}".format(test_accuracy))
