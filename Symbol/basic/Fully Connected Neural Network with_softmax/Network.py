@@ -50,7 +50,7 @@ def NeuralNet(epoch,batch_size,save_period,load_weights):
     output_affine = mx.sym.FullyConnected(data=hidden2, name='fc3', num_hidden=10)
 
     #The soft max label is compatible with both xxxx_lbl and xxxx_lbl_one_hot.
-    output=mx.sym.SoftmaxOutput(data=output_affine,label=label)
+    output=mx.sym.SoftmaxOutput(data=output_affine,label=label) # Computes the gradient of cross entropy loss with respect to softmax output.
 
     #LogisticRegressionOutput contains a sigmoid function internally. and It should be executed with xxxx_lbl_one_hot data.
     #output = mx.sym.LogisticRegressionOutput(data=output_affine ,label=label)

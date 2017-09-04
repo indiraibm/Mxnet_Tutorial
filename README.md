@@ -61,18 +61,32 @@ print mx.asnumpy(out)
         pip install graphviz(in anaconda Command Prompt) 
 
         <window>
-        1. 'pip install graphviz'(in winpython Command Prompt) 
-        2. download 'graphviz-2.38.msi' at 'http://www.graphviz.org/Download_windows.php'
-        3. Install to 'C:\Program Files (x86)\'
-        4. add 'C:\Program Files (x86)\Graphviz2.38\bin' to the environment variable PATH
+        1. download 'graphviz-2.38.msi' at 'http://www.graphviz.org/Download_windows.php'
+        2. Install to 'C:\Program Files (x86)\'
+        3. add 'C:\Program Files (x86)\Graphviz2.38\bin' to the environment variable PATH
         ```
         ```python
-        Must be run on 'jupyter notebook'   
-
+        '''<sample code>'''  
         import mxnet as mx  
-        ...
-        ...
-        graph=mx.viz.plot_network(symbol=mlp, shape=shape)
+
+        '''neural network'''
+        data = mx.sym.Variable('data')
+        label = mx.sym.Variable('label')
+
+        # first_hidden_layer
+        affine1 = mx.sym.FullyConnected(data=data,name='fc1',num_hidden=50)
+        hidden1 = mx.sym.Activation(data=affine1, name='sigmoid1', act_type="sigmoid")
+
+        # two_hidden_layer
+        affine2 = mx.sym.FullyConnected(data=hidden1, name='fc2', num_hidden=50)
+        hidden2 = mx.sym.Activation(data=affine2, name='sigmoid2', act_type="sigmoid")
+
+        # output_layer
+        output_affine = mx.sym.FullyConnected(data=hidden2, name='fc3', num_hidden=10)
+        output=mx.sym.SoftmaxOutput(data=output_affine,label=label)
+
+        # Create network graph
+        graph=mx.viz.plot_network(symbol=output)
         graph.view() # Show graphs and save them in pdf format.
         ```
         * `To view only the results, run the 'xxx.html' file with 'Chrome' or 'Explorer'`
@@ -160,14 +174,15 @@ print mx.asnumpy(out)
 
 
 >## ***Development environment***
-* os : ```window 10.1 64bit``` and ```Ubuntu linux 16.04.2 LTS``` 
-* python version(`3.5.3`) : `anaconda3 4.3.18(window)` and `anaconda3 4.3.18(linux)` 
+* os : ```window 10.1 64bit``` and ```Ubuntu linux 16.04.2 LTS only for tensorboard``` 
+* python version(`3.6.1`) : `anaconda3 4.4.0` 
 * IDE : `pycharm Community Edition 2017.2.2 or visual studio code`
 
 >## ***Dependencies*** 
 * mxnet-0.11.1
-* numpy-1.12.1, matplotlib-2.0.0 , tensorboard-1.0.0a7(linux) , graphviz -> (`Visualization`)
-* opencv-3.1.0(window) , opencv-3.1.0(linux) , struct , gzip , os , glob , threading -> (`Data preprocessing`)
+* numpy-1.12.1, matplotlib-2.0.2 , tensorboard-1.0.0a7(linux) , graphviz -> (`Visualization`)
+* tqdm -> (`Extensible Progress Meter`)
+* opencv-3.3.0.10 , struct , gzip , os , glob , threading -> (`Data preprocessing`)
 * Pickle -> (`Data save and restore`)
 * logging -> (`Observation during learning`)
 * argparse -> (`Command line input from user`)
