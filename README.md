@@ -22,7 +22,7 @@ out=mx.nd.ones((3,3),mx.gpu(0))
 print mx.asnumpy(out)
 ```
 * The below code is the result of executing the above code
-```
+```python
 <NDArray 3x3 @gpu(0)>
 [[ 1.  1.  1.]
  [ 1.  1.  1.]
@@ -44,8 +44,8 @@ print mx.asnumpy(out)
     
     * [***Recurrent Neural Networks + LSTM with SoftmaxOutput : Classifying the MNIST data using mxnet***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Recurrent%20Neural%20Networks%20%2B%20LSTM%20with%20SoftmaxOutput)
 
-    * [***Recurrent Neural Networks + LSTM with SoftmaxOutput*** *(flexible)* : ***Classifying the MNIST data using mxnet***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Recurrent%20Neural%20Networks%20%2B%20LSTM%20with%20SoftmaxOutput(flexible%20to%20use%20the%20module))
-
+    * [***Recurrent Neural Networks + LSTM with SoftmaxOutput*** *(flexible)* : ***Classifying the MNIST data using mxnet***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Recurrent%20Neural%20Networks%20%2B%20LSTM%20with%20SoftmaxOutput(flexible%20to%20use%20the%20module)) 
+    
     * [***Recurrent Neural Networks + GRU with SoftmaxOutput : Classifying the MNIST data using mxnet***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Recurrent%20Neural%20Networks%20%2B%20GRU%20with%20SoftmaxOutput)
 
     * [***Recurrent Neural Networks + GRU with SoftmaxOutput*** *(flexible)* : ***Classifying the MNIST data using mxnet***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Recurrent%20Neural%20Networks%20%2B%20GRU%20with%20SoftmaxOutput(flexible%20to%20use%20the%20module))
@@ -89,7 +89,7 @@ print mx.asnumpy(out)
         graph=mx.viz.plot_network(symbol=output)
         graph.view() # Show graphs and save them in pdf format.
         ```
-        * `To view only the results, run the 'xxx.html' file with 'Chrome' or 'Explorer'`
+
     * [***mxnet with tensorboard Only available on Linux - currently only works in Python 2.7(Will be fixed soon)***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/visualization/tensorboard-linux)
         
         ```python
@@ -109,7 +109,6 @@ print mx.asnumpy(out)
         * If you want to see the results immediately,`write the following script in the terminal window` where the event file exists.
         
             * `tensorboard --logdir=tensorboard --logdir=./ --port=6006`
-
 
 * ### ***Neural Networks Applications***
     * [***Predicting lotto numbers in regression analysis using mxnet***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/applications/Predicting%20lotto%20numbers%20in%20regression%20analysis%20using%20mxnet)
@@ -131,7 +130,7 @@ print mx.asnumpy(out)
     It is imperactive coding and focuses on NDArray of mxnet.
     ```
 
-    * `The following LINK is a tutorial on the [gluon page](http://gluon.mxnet.io/index.html)  official homepage
+    * #### The following LINK is a tutorial on the [gluon page](http://gluon.mxnet.io/index.html)  official homepage
 
         * [***Multiclass logistic regression with NDArray : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Multiclass_logistic_regression_with_NDArray)
 
@@ -152,19 +151,26 @@ print mx.asnumpy(out)
     It is imperactive coding and focuses on mxnet with NDArray and Gluon.
     ```
 
-    * `The following LINK is a tutorial on the [gluon page](http://gluon.mxnet.io/index.html)  official homepage
+    * #### The following LINK is a tutorial on the [gluon page](http://gluon.mxnet.io/index.html)  official homepage
 
-        * [***Multiclass logistic regression with Gluon : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Multiclass_logistic_regression_with_Gluon)
+        * ***using nn.Sequential when writing your `High-Level Code`***
 
-        * [***Fully Neural Network with Gluon : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Fully_Neural_Network_with_Gluon)
+            * [***Multiclass logistic regression with Gluon : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Multiclass_logistic_regression_with_Gluon)
 
-        * [***Convolution Neural Network with Gluon : Classifying the MNIST , CIFAR10 , Fashion_MNIST data - not yet***]()
+            * [***Fully Neural Network with Gluon : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Fully_Neural_Network_with_Gluon)
 
-        * [***Autoencoder Neural Networks with Gluon : Using the MNIST and Fashion_MNIST data - not yet***]()
+            * [***Convolution Neural Network with Gluon : Classifying the MNIST , CIFAR10 , Fashion_MNIST data - not yet***]()
 
-        * [***Convolution Autoencoder Neural Networks with Gluon : Using the MNIST and Fashion_MNIST data - not yet***]()
+            * [***Autoencoder Neural Networks with Gluon : Using the MNIST and Fashion_MNIST data - not yet***]()
 
-        * [***Recurrent Neural Network with Gluon : Classifying the MNIST and Fashion MNIST data - not yet***]()
+            * [***Convolution Autoencoder Neural Networks with Gluon : Using the MNIST and Fashion_MNIST data - not yet***]()
+
+            * [***Recurrent Neural Network with Gluon : Classifying the MNIST and Fashion MNIST data - not yet***]()
+
+
+        * ***using Block when Designing a `Custom Layer` - Flexible use of Gluon`***
+
+            * [***Convolution Neural Network using Block with Gluon : Classifying the MNIST , CIFAR10 , Fashion_MNIST data - not yet***]()
         
 * ### ***Neural Networks Applications***
 
@@ -177,7 +183,7 @@ print mx.asnumpy(out)
 * os : ```window 10.1 64bit``` and ```Ubuntu linux 16.04.2 LTS only for tensorboard``` 
 * python version(`3.6.1`) : `anaconda3 4.4.0` 
 * IDE : `pycharm Community Edition 2017.2.2 or visual studio code`
-
+    
 >## ***Dependencies*** 
 * mxnet-0.11.1
 * numpy-1.12.1, matplotlib-2.0.2 , tensorboard-1.0.0a7(linux) , graphviz -> (`Visualization`)
@@ -187,6 +193,5 @@ print mx.asnumpy(out)
 * logging -> (`Observation during learning`)
 * argparse -> (`Command line input from user`)
 * urllib , requests -> (`Web crawling`) 
-
 >## ***Author*** 
 [JONGGON KIM](https://github.com/JONGGON)
