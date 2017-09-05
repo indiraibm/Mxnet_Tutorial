@@ -37,21 +37,29 @@ def CIFAR10(batch_size):
     return train_data , test_data
 
 #evaluate the data
-def evaluate_accuracy(data_iterator ,num_inputs , net , ctx , dataset):
-    acc = mx.metric.Accuracy()
-    for data,label in data_iterator:
+def evaluate_accuracy(data_iterator , num_inputs , network , ctx , dataset):
+    numerator = 0
+    denominator = 0
+
+    for data, label in data_iterator:
 
         if dataset=="CIFAR10":
             data = nd.slice_axis(data=data, axis=3, begin=0, end=1)
 
-        data = data.as_in_context(ctx).reshape((-1,num_inputs))#as_in_context : Returns an array on the target device with the same value as this array.
-        label = label.as_in_context(ctx) #as_in_context : Returns an array on the target device with the same value as this array.
-        output = net(data)
-        prediction = nd.argmax(output , axis=1) # (batch,10(axis=1)
-        acc.update(preds = prediction , labels = label)
-    return acc.get()
+        data = data.as_in_context(ctx).reshape((-1,num_inputs))
+        label = label.as_in_context(ctx)
+        output = network(data) # when test , 'Dropout rate' must be 0.0
 
-def muitlclass_logistic_regression(epoch = 100 , batch_size=128, save_period=10 , load_period=100 ,optimizer="sgd",learning_rate= 0.01 , dataset = "MNIST", ctx=mx.gpu(0)):
+        predictions = nd.argmax(output, axis=1) # (batch_size , num_outputs)
+
+        predictions=predictions.asnumpy()
+        label=label.asnumpy()
+        numerator += sum(predictions == label)
+        denominator += data.shape[0]
+
+    return (numerator / denominator)
+
+def FNN(epoch = 100 , batch_size=128, save_period=10 , load_period=100 ,optimizer="sgd",learning_rate= 0.01 , dataset = "MNIST", ctx=mx.gpu(0)):
 
     #data selection
     if dataset =="MNIST":
@@ -70,6 +78,7 @@ def muitlclass_logistic_regression(epoch = 100 , batch_size=128, save_period=10 
         num_inputs = 32 * 32
 
     #network parameter    
+    num_hidden = 50
     num_outputs = 10
 
     if dataset == "MNIST":
@@ -89,26 +98,30 @@ def muitlclass_logistic_regression(epoch = 100 , batch_size=128, save_period=10 
     •Backprop gradient
     •Update parameters with gradient descent.
     '''
-    #network
+    #Fully Neural Network with 1 Hidden layer 
     net = gluon.nn.Sequential() # stacks 'Block's sequentially
     with net.name_scope():
-        net.add(gluon.nn.Dense(units=num_outputs , activation=None , use_bias=True)) # linear activation
+        net.add(gluon.nn.Dense(units=num_hidden , activation="relu", use_bias=True)) # linear activation
+        net.add(gluon.nn.Dropout(0.2))
+        net.add(gluon.nn.Dense(num_outputs,use_bias=True))
 
-    # weight initialization
+    #weights initialization
     if os.path.exists(path):
         print("loading weights")
         net.load_params(filename=path , ctx=ctx) # weights load
     else:
         print("initializing weights")
         net.collect_params().initialize(mx.init.Normal(sigma=1.),ctx=ctx) # weights initialization
-    
+
     #optimizer
     trainer = gluon.Trainer(net.collect_params() , optimizer, {"learning_rate" : learning_rate})
 
+    #learning
     for i in tqdm(range(1,epoch+1,1)):
         for data , label in train_data:
             if dataset == "CIFAR10":
                 data = nd.slice_axis(data= data , axis=3 , begin = 0 , end=1)
+
             data = data.as_in_context(ctx).reshape((-1,num_inputs))
             label = label.as_in_context(ctx)
 
@@ -117,7 +130,6 @@ def muitlclass_logistic_regression(epoch = 100 , batch_size=128, save_period=10 
 
                 #loss definition
                 loss=gluon.loss.SoftmaxCrossEntropyLoss()(output,label)
-
             loss.backward()
             trainer.step(batch_size,ignore_stale_grad=True)
 
@@ -141,13 +153,13 @@ def muitlclass_logistic_regression(epoch = 100 , batch_size=128, save_period=10 
                 net.save_params("weights/CIFAR10-{}.params".format(i))
 
     test_accuracy = evaluate_accuracy(test_data ,num_inputs , net , ctx , dataset)
-    print("Test_acc : {}".format(test_accuracy[1]))
+    print("Test_acc : {}".format(test_accuracy))
 
     return "optimization completed"
 
 
 if __name__ == "__main__":
-    muitlclass_logistic_regression(epoch=100, batch_size=128, save_period=10 , load_period=100 , optimizer="sgd", learning_rate=0.1, dataset="MNIST", ctx=mx.gpu(0))
+    FNN(epoch = 100 , batch_size=128, save_period=10 , load_period=100 ,optimizer="sgd",learning_rate= 0.01 , dataset = "MNIST", ctx=mx.gpu(0))
 else :
     print("Imported")
 

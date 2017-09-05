@@ -154,9 +154,9 @@ print mx.asnumpy(out)
 
     * `The following LINK is a tutorial on the [gluon page](http://gluon.mxnet.io/index.html)  official homepage
 
-        * [***Multiclass logistic regression with Gluon : Classifying the MNIST , CIFAR10 , Fashion_MNIST data-not yet***]()
+        * [***Multiclass logistic regression with Gluon : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Multiclass_logistic_regression_with_Gluon)
 
-        * [***Fully Neural Network with Gluon : Classifying the MNIST , CIFAR10 , Fashion_MNIST data - not yet***]()
+        * [***Fully Neural Network with Gluon : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Fully_Neural_Network_with_Gluon)
 
         * [***Convolution Neural Network with Gluon : Classifying the MNIST , CIFAR10 , Fashion_MNIST data - not yet***]()
 
