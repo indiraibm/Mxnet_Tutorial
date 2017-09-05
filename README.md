@@ -22,7 +22,7 @@ out=mx.nd.ones((3,3),mx.gpu(0))
 print mx.asnumpy(out)
 ```
 * The below code is the result of executing the above code
-```python
+```
 <NDArray 3x3 @gpu(0)>
 [[ 1.  1.  1.]
  [ 1.  1.  1.]
@@ -89,7 +89,6 @@ print mx.asnumpy(out)
         graph=mx.viz.plot_network(symbol=output)
         graph.view() # Show graphs and save them in pdf format.
         ```
-
     * [***mxnet with tensorboard Only available on Linux - currently only works in Python 2.7(Will be fixed soon)***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/visualization/tensorboard-linux)
         
         ```python
@@ -168,7 +167,7 @@ print mx.asnumpy(out)
             * [***Recurrent Neural Network with Gluon : Classifying the MNIST and Fashion MNIST data - not yet***]()
 
 
-        * ***using Block when Designing a `Custom Layer` - Flexible use of Gluon`***
+        * ***using Block when Designing a `Custom Layer` - Flexible use of Gluon***
 
             * [***Convolution Neural Network using Block with Gluon : Classifying the MNIST , CIFAR10 , Fashion_MNIST data - not yet***]()
         
