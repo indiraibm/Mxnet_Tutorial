@@ -89,7 +89,7 @@ print mx.asnumpy(out)
         graph=mx.viz.plot_network(symbol=output)
         graph.view() # Show graphs and save them in pdf format.
         ```
-    * [***mxnet with tensorboard Only available on Linux - currently only works in Python 2.7(Will be fixed soon) ***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/visualization/tensorboard-linux)
+    * [***mxnet with tensorboard Only available on Linux - currently only works in Python 2.7(Will be fixed soon)***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/visualization/tensorboard-linux)
         
         ```python
         pip install tensorboard   
