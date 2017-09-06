@@ -40,8 +40,6 @@ def generate_image(data_iterator , network , ctx , dataset ):
         data = data.asnumpy() * 255.0
         output=output.asnumpy() * 255.0
 
-        if i==0:
-            break
     '''test'''
     column_size=10 ; row_size=10 #     column_size x row_size <= 10000
 
@@ -183,20 +181,20 @@ def CNN_Autoencoder(epoch = 100 , batch_size=10, save_period=10 , load_period=10
     def network(X,dropout=0.0):
 
         #encoder
-        EC_H1=nd.Activation(data= nd.Convolution(data=X , weight = W1 , bias = B1 , kernel=(3,3) , stride=(1,1)  , num_filter=60) , act_type="relu") # FashionMNIST : : result = ( batch size , 60 , 26 , 26)
-        EC_H2=nd.Activation(data= nd.Convolution(data=EC_H1 , weight = W2 , bias = B2 , kernel=(3,3) , stride=(1,1) , num_filter=30), act_type="relu") # FashionMNIST : result = ( batch size , 30 , 24 , 24)
-        EC_H3=nd.Activation(data= nd.Convolution(data=EC_H2 , weight = W3 , bias = B3 , kernel=(3,3) , stride=(1,1) , num_filter=15), act_type="relu") # FashionMNIST : result = ( batch size , 15 , 24 , 24)
+        EC_H1=nd.Activation(data= nd.Convolution(data=X , weight = W1 , bias = B1 , kernel=(3,3) , stride=(1,1)  , num_filter=60) , act_type="relu") # FashionMNIST or MNIST : result = ( batch size , 60 , 26 , 26)
+        EC_H2=nd.Activation(data= nd.Convolution(data=EC_H1 , weight = W2 , bias = B2 , kernel=(3,3) , stride=(1,1) , num_filter=30), act_type="relu") # FashionMNIST or MNIST : result = ( batch size , 30 , 24 , 24)
+        EC_H3=nd.Activation(data= nd.Convolution(data=EC_H2 , weight = W3 , bias = B3 , kernel=(3,3) , stride=(1,1) , num_filter=15), act_type="relu") # FashionMNIST or MNIST : result = ( batch size , 15 , 22 , 22)
 
         #Middle
-        MC_H=nd.Activation(data= nd.Convolution(data=EC_H3 , weight = W4 , bias = B4 , kernel=(3,3) , stride=(1,1) , num_filter=10), act_type="relu") # FashionMNIST : result = ( batch size , 10 , 22 , 22)
+        MC_H=nd.Activation(data= nd.Convolution(data=EC_H3 , weight = W4 , bias = B4 , kernel=(3,3) , stride=(1,1) , num_filter=10), act_type="relu") # FashionMNIST : result = ( batch size , 10 , 20 , 20)
 
         #decoder -  why not using Deconvolution? because NDArray.Deconvolution is not working...
-        DC_H1=nd.Activation(data = nd.Convolution(data=MC_H , weight = W5 , bias = B5 , kernel=(3,3) , stride=(1,1) , pad= (2,2) , num_filter=15) , act_type="relu") # FashionMNIST : : result = ( batch size , 15 , 24 , 24)
-        DC_H2=nd.Activation(data= nd.Convolution(data=DC_H1 , weight = W6 , bias = B6 , kernel=(3,3) , stride=(1,1) , pad= (2,2) , num_filter=30), act_type="relu") # FashionMNIST : result = ( batch size , 30 , 24 , 24)
-        DC_H3=nd.Activation(data= nd.Convolution(data=DC_H2 , weight = W7 , bias = B7 , kernel=(3,3) , stride=(1,1) , pad= (2,2) , num_filter=60) , act_type="relu") # FashionMNIST : result = ( batch size , 60 , 26 , 26)
+        DC_H1=nd.Activation(data = nd.Convolution(data=MC_H , weight = W5 , bias = B5 , kernel=(3,3) , stride=(1,1) , pad= (2,2) , num_filter=15) , act_type="relu") # FashionMNIST or MNIST : result = ( batch size , 15 , 22 , 22)
+        DC_H2=nd.Activation(data= nd.Convolution(data=DC_H1 , weight = W6 , bias = B6 , kernel=(3,3) , stride=(1,1) , pad= (2,2) , num_filter=30), act_type="relu") # FashionMNIST or MNIST  : result = ( batch size , 30 , 24 , 24)
+        DC_H3=nd.Activation(data= nd.Convolution(data=DC_H2 , weight = W7 , bias = B7 , kernel=(3,3) , stride=(1,1) , pad= (2,2) , num_filter=60) , act_type="relu") # FashionMNIST or MNIST  : result = ( batch size , 60 , 26 , 26)
 
         #output
-        out=nd.Activation(data= nd.Convolution(data=DC_H3 , weight = W8 , bias = B8 , kernel=(3,3) , stride=(1,1) , pad= (2,2), num_filter=1) , act_type="sigmoid") # FashionMNIST : : result = ( batch size , 1 , 28 , 28)
+        out=nd.Activation(data= nd.Convolution(data=DC_H3 , weight = W8 , bias = B8 , kernel=(3,3) , stride=(1,1) , pad= (2,2), num_filter=1) , act_type="sigmoid") # FashionMNIST or MNIST : result = ( batch size , 1 , 28 , 28)
 
         return out
 

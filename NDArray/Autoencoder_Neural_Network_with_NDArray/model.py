@@ -41,49 +41,52 @@ def generate_image(data_iterator , num_inputs , network , ctx , dataset):
         data = data.asnumpy() * 255.0
         output=output.asnumpy() * 255.0
 
-        '''test'''
-        column_size=10 ; row_size=10 #     column_size x row_size <= 10000
+    '''test'''
+    column_size=10 ; row_size=10 #     column_size x row_size <= 10000
 
-        if not os.path.exists("Generate_Image"):
-            os.makedirs("Generate_Image")
+    print("show image")
+    '''generator image visualization'''
 
-        if dataset == "MNIST":
-            fig_g, ax_g = plt.subplots(row_size, column_size, figsize=(column_size, row_size))
-            fig_g.suptitle('MNIST_generator')
-            for j in range(row_size):
-                for i in range(column_size):
-                    ax_g[j][i].set_axis_off()
-                    ax_g[j][i].imshow(np.reshape(output[i + j * column_size], (28, 28)), cmap='gray')
-            fig_g.savefig("Generate_Image/MNIST_generator.png")
+    if not os.path.exists("Generate_Image"):
+        os.makedirs("Generate_Image")
 
-            '''real image visualization'''
-            fig_r, ax_r = plt.subplots(row_size, column_size, figsize=(column_size, row_size))
-            fig_r.suptitle('MNIST_real')
-            for j in range(row_size):
-                for i in range(column_size):
-                    ax_r[j][i].set_axis_off()
-                    ax_r[j][i].imshow(np.reshape(data[i + j * column_size], (28, 28)), cmap='gray')
-            fig_r.savefig("Generate_Image/MNIST_real.png")
+    if dataset=="MNIST":
+        fig_g, ax_g = plt.subplots(row_size, column_size, figsize=(column_size, row_size))
+        fig_g.suptitle('MNIST_generator')
+        for j in range(row_size):
+            for i in range(column_size):
+                ax_g[j][i].set_axis_off()
+                ax_g[j][i].imshow(np.reshape(output[i + j * column_size],(28,28)),cmap='gray')
+        fig_g.savefig("Generate_Image/MNIST_generator.png")
 
-        elif dataset == "FashionMNIST":
-            fig_g, ax_g = plt.subplots(row_size, column_size, figsize=(column_size, row_size))
-            fig_g.suptitle('FashionMNIST_generator')
-            for j in range(row_size):
-                for i in range(column_size):
-                    ax_g[j][i].set_axis_off()
-                    ax_g[j][i].imshow(np.reshape(output[i + j * column_size], (28, 28)), cmap='gray')
-            fig_g.savefig("Generate_Image/FashionMNIST_generator.png")
+        '''real image visualization'''
+        fig_r, ax_r = plt.subplots(row_size, column_size, figsize=(column_size, row_size))
+        fig_r.suptitle('MNIST_real')
+        for j in range(row_size):
+            for i in range(column_size):
+                ax_r[j][i].set_axis_off()
+                ax_r[j][i].imshow(np.reshape(data[i + j * column_size],(28,28)),cmap='gray')
+        fig_r.savefig("Generate_Image/MNIST_real.png")
 
-            '''real image visualization'''
-            fig_r, ax_r = plt.subplots(row_size, column_size, figsize=(column_size, row_size))
-            fig_r.suptitle('FashionMNIST_real')
-            for j in range(row_size):
-                for i in range(column_size):
-                    ax_r[j][i].set_axis_off()
-                    ax_r[j][i].imshow(np.reshape(data[i + j * column_size], (28, 28)), cmap='gray')
-            fig_r.savefig("Generate_Image/FashionMNIST_real.png")
+    elif dataset=="FashionMNIST":
+        fig_g, ax_g = plt.subplots(row_size, column_size, figsize=(column_size, row_size))
+        fig_g.suptitle('FashionMNIST_generator')
+        for j in range(row_size):
+            for i in range(column_size):
+                ax_g[j][i].set_axis_off()
+                ax_g[j][i].imshow(np.reshape(output[i + j * column_size],(28,28)),cmap='gray')
+        fig_g.savefig("Generate_Image/FashionMNIST_generator.png")
 
-        plt.show()
+        '''real image visualization'''
+        fig_r, ax_r = plt.subplots(row_size, column_size, figsize=(column_size, row_size))
+        fig_r.suptitle('FashionMNIST_real')
+        for j in range(row_size):
+            for i in range(column_size):
+                ax_r[j][i].set_axis_off()
+                ax_r[j][i].imshow(np.reshape(data[i + j * column_size],(28,28)),cmap='gray')
+        fig_r.savefig("Generate_Image/FashionMNIST_real.png")
+
+    plt.show()
 
 
 #reduce dimensions -> similar to PCA

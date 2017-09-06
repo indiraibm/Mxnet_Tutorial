@@ -30,29 +30,29 @@ print mx.asnumpy(out)
 ```      
 >## ***Topic 1 : Symbolic programming***
 * ### ***Neural Networks basic with <Symbol.API + Module.API>***
-    * [***Fully Connected Neural Network with LogisticRegressionOutput : Classifying the MNIST data using mxnet***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Fully%20Connected%20Neural%20Network%20with_LogisticRegressionOutput)
+    * [***Fully Connected Neural Network with LogisticRegressionOutput : Classifying the MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Fully%20Connected%20Neural%20Network%20with_LogisticRegressionOutput)
 
-    * [***Fully Connected Neural Network with SoftmaxOutput : Classifying the MNIST data using mxnet***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Fully%20Connected%20Neural%20Network%20with_softmax)
+    * [***Fully Connected Neural Network with SoftmaxOutput : Classifying the MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Fully%20Connected%20Neural%20Network%20with_softmax)
     
-    * [***Fully Connected Neural Network with SoftmaxOutput*** *(flexible)* : ***Classifying the MNIST data using mxnet***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Fully%20Connected%20Neural%20Network%20with%20SoftmaxOutput(flexible%20to%20use%20the%20module))
+    * [***Fully Connected Neural Network with SoftmaxOutput*** *(flexible)* : ***Classifying the MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Fully%20Connected%20Neural%20Network%20with%20SoftmaxOutput(flexible%20to%20use%20the%20module))
 
-    * [***Convolutional Neural Networks with SoftmaxOutput : Classifying the MNIST data using mxnet***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Convolutional%20Neural%20Networks%20with%20SoftmaxOutput)
+    * [***Convolutional Neural Networks with SoftmaxOutput : Classifying the MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Convolutional%20Neural%20Networks%20with%20SoftmaxOutput)
 
-    * [***Convolutional Neural Networks with SoftmaxOutput*** *(flexible)* : ***Classifying the MNIST data using mxnet***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Convolutional%20Neural%20Networks%20with%20SoftmaxOutput(flexible%20to%20use%20the%20module))
+    * [***Convolutional Neural Networks with SoftmaxOutput*** *(flexible)* : ***Classifying the MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Convolutional%20Neural%20Networks%20with%20SoftmaxOutput(flexible%20to%20use%20the%20module))
 
-    * [***Recurrent Neural Networks with SoftmaxOutput : Classifying the MNIST data using mxnet***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Recurrent%20Neural%20Networks%20with%20SoftmaxOutput)
+    * [***Recurrent Neural Networks with SoftmaxOutput : Classifying the MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Recurrent%20Neural%20Networks%20with%20SoftmaxOutput)
     
-    * [***Recurrent Neural Networks + LSTM with SoftmaxOutput : Classifying the MNIST data using mxnet***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Recurrent%20Neural%20Networks%20%2B%20LSTM%20with%20SoftmaxOutput)
+    * [***Recurrent Neural Networks + LSTM with SoftmaxOutput : Classifying the MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Recurrent%20Neural%20Networks%20%2B%20LSTM%20with%20SoftmaxOutput)
 
-    * [***Recurrent Neural Networks + LSTM with SoftmaxOutput*** *(flexible)* : ***Classifying the MNIST data using mxnet***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Recurrent%20Neural%20Networks%20%2B%20LSTM%20with%20SoftmaxOutput(flexible%20to%20use%20the%20module)) 
+    * [***Recurrent Neural Networks + LSTM with SoftmaxOutput*** *(flexible)* : ***Classifying the MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Recurrent%20Neural%20Networks%20%2B%20LSTM%20with%20SoftmaxOutput(flexible%20to%20use%20the%20module)) 
     
-    * [***Recurrent Neural Networks + GRU with SoftmaxOutput : Classifying the MNIST data using mxnet***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Recurrent%20Neural%20Networks%20%2B%20GRU%20with%20SoftmaxOutput)
+    * [***Recurrent Neural Networks + GRU with SoftmaxOutput : Classifying the MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Recurrent%20Neural%20Networks%20%2B%20GRU%20with%20SoftmaxOutput)
 
-    * [***Recurrent Neural Networks + GRU with SoftmaxOutput*** *(flexible)* : ***Classifying the MNIST data using mxnet***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Recurrent%20Neural%20Networks%20%2B%20GRU%20with%20SoftmaxOutput(flexible%20to%20use%20the%20module))
+    * [***Recurrent Neural Networks + GRU with SoftmaxOutput*** *(flexible)* : ***Classifying the MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Recurrent%20Neural%20Networks%20%2B%20GRU%20with%20SoftmaxOutput(flexible%20to%20use%20the%20module))
 
-    * [***Autoencoder Neural Networks with logisticRegressionOutput : Compressing the MNIST data using mxnet***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Autoencoder%20Neural%20Networks%20with%20logisticRegressionOutput)
+    * [***Autoencoder Neural Networks with logisticRegressionOutput : Compressing the MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Autoencoder%20Neural%20Networks%20with%20logisticRegressionOutput)
 
-    * [***Autoencoder Neural Networks with logisticRegressionOutput*** *(flexible)* : ***Compressing the MNIST data using mxnet***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Autoencoder%20Neural%20Networks%20with%20logisticRegressionOutput(flexible%20to%20use%20the%20module))
+    * [***Autoencoder Neural Networks with logisticRegressionOutput*** *(flexible)* : ***Compressing the MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Autoencoder%20Neural%20Networks%20with%20logisticRegressionOutput(flexible%20to%20use%20the%20module))
 
 * ### ***Neural Networks with visualization***
     * [***mxnet with graphviz library***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/visualization/visualization)
@@ -110,7 +110,7 @@ print mx.asnumpy(out)
             * `tensorboard --logdir=tensorboard --logdir=./ --port=6006`
 
 * ### ***Neural Networks Applications***
-    * [***Predicting lotto numbers in regression analysis using mxnet***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/applications/Predicting%20lotto%20numbers%20in%20regression%20analysis%20using%20mxnet)
+    * [***Predicting lotto numbers in regression analysis***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/applications/Predicting%20lotto%20numbers%20in%20regression%20analysis%20using%20mxnet)
 
     * [***Generative Adversarial Networks with fullyConnected Neural Network : using MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/applications/Generative%20Adversarial%20Network%20with%20FullyConnected%20Neural%20Network)
 
@@ -131,17 +131,17 @@ print mx.asnumpy(out)
 
     * #### The following LINK is a tutorial on the [gluon page](http://gluon.mxnet.io/index.html)  official homepage
 
-        * [***Multiclass logistic regression with NDArray : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Multiclass_logistic_regression_with_NDArray)
+        * [***Multiclass logistic regression : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Multiclass_logistic_regression_with_NDArray)
 
-        * [***Fully Neural Network with NDArray : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Fully_Neural_Network_with_NDArray)
+        * [***Fully Neural Network : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Fully_Neural_Network_with_NDArray)
 
-        * [***Convolution Neural Network with NDArray : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Convolution_Neural_Network_with_NDArray)
+        * [***Convolution Neural Network : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Convolution_Neural_Network_with_NDArray)
 
-        * [***Autoencoder Neural Networks with NDArray : Using the MNIST and Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Autoencoder_Neural_Network_with_NDArray)
+        * [***Autoencoder Neural Networks : Using the MNIST and Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Autoencoder_Neural_Network_with_NDArray)
 
-        * [***Convolution Autoencoder Neural Networks with NDArray : Using the MNIST and Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Convolution_Autoencoder_Neural_Network_with_NDArray)
+        * [***Convolution Autoencoder Neural Networks : Using the MNIST and Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Convolution_Autoencoder_Neural_Network_with_NDArray)
 
-        * [***Recurrent Neural Network with NDArray : Classifying the MNIST and Fashion MNIST data - not yet***]()
+        * [***Recurrent Neural Network : Classifying the MNIST and Fashion MNIST data - not yet***]()
 
 * ### ***Neural Networks With <NDArray.API + Gluon Package + Autograd Package>***
 
@@ -152,31 +152,31 @@ print mx.asnumpy(out)
 
     * #### The following LINK is a tutorial on the [gluon page](http://gluon.mxnet.io/index.html)  official homepage
 
-        * ***using nn.Sequential when writing your `High-Level Code`***
+        * ***Using nn.Sequential when writing your `High-Level Code`***
 
-            * [***Multiclass logistic regression with Gluon : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Multiclass_logistic_regression_with_Gluon)
+            * [***Multiclass logistic regression : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Multiclass_logistic_regression_with_Gluon)
 
-            * [***Fully Neural Network with Gluon : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Fully_Neural_Network_with_Gluon)
+            * [***Fully Neural Network : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Fully_Neural_Network_with_Gluon)
 
-            * [***Convolution Neural Network with Gluon : Classifying the MNIST , CIFAR10 , Fashion_MNIST data - not yet***]()
+            * [***Convolution Neural Network : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Convolution_Neural_Network_with_Gluon)
 
-            * [***Autoencoder Neural Networks with Gluon : Using the MNIST and Fashion_MNIST data - not yet***]()
+            * [***Autoencoder Neural Networks : Using the MNIST and Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Autoencoder_Neural_Network_with_Gluon)
 
-            * [***Convolution Autoencoder Neural Networks with Gluon : Using the MNIST and Fashion_MNIST data - not yet***]()
+            * [***Convolution Autoencoder Neural Networks : Using the MNIST and Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Convolution_Autoencoder_Neural_Network_with_Gluon)
 
-            * [***Recurrent Neural Network with Gluon : Classifying the MNIST and Fashion MNIST data - not yet***]()
+            * [***Recurrent Neural Network : Classifying the MNIST and Fashion MNIST data - not yet***]()
 
+        * ***Using Block when Designing a `Custom Layer` - Flexible use of Gluon***
 
-        * ***using Block when Designing a `Custom Layer` - Flexible use of Gluon***
+            * [***Convolution Neural Network with Block or HybridBlock : Classifying the MNIST , CIFAR10 , Fashion_MNIST data - not yet***]()
 
-            * [***Convolution Neural Network using Block with Gluon : Classifying the MNIST , CIFAR10 , Fashion_MNIST data - not yet***]()
+                * [More information on `block` and `hybridblock`](http://thestraightdope.mxnet.io/chapter07_distributed-learning/hybridize.html) 
         
 * ### ***Neural Networks Applications***
 
-    * [***Predicting lotto numbers in regression analysis using Gluon - not yet***]()
+    * [***Predicting lotto numbers in regression analysis - not yet***]()
         
-    * [***Paint Chainer using Mxnet-Gluon package - not yet***]()
-
+    * [***Paint-Mxnet - not yet***]()
 
 >## ***Development environment***
 * os : ```window 10.1 64bit``` and ```Ubuntu linux 16.04.2 LTS only for tensorboard``` 
