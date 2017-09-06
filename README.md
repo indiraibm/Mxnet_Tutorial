@@ -162,7 +162,7 @@ print mx.asnumpy(out)
 
             * [***Autoencoder Neural Networks : Using the MNIST and Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Autoencoder_Neural_Network_with_Gluon)
 
-            * [***Convolution Autoencoder Neural Networks : Using the MNIST and Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Convolution_Autoencoder_Neural_Network_with_Gluon)
+            * [***Convolution Autoencoder Neural Networks : Using the MNIST and Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Convolution_Autoencoder_Neural_Network_with_Gluon)
 
             * [***Recurrent Neural Network : Classifying the MNIST and Fashion MNIST data - not yet***]()
 
