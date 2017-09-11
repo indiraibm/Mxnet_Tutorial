@@ -28,7 +28,7 @@ print mx.asnumpy(out)
  [ 1.  1.  1.]
  [ 1.  1.  1.]]
 ```      
->## ***Topic 1 : Symbolic programming***
+>## ***Topic 1 : Symbolic Programming***
 * ### ***Neural Networks basic with <Symbol.API + Module.API>***
     * [***Fully Connected Neural Network with LogisticRegressionOutput : Classifying the MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/basic/Fully%20Connected%20Neural%20Network%20with_LogisticRegressionOutput)
 
@@ -120,7 +120,13 @@ print mx.asnumpy(out)
         python main.py --state --epoch 100 --noise_size 100 --batch_size 200 --save_period 100 --dataset CIFAR10 --load_weights 100
         ```
 
->## ***Topic 2 : Imperative programming***
+* ### ***A Deeper Understanding Of Symbol.API***
+
+    * [***How do I make a custom symbol function? - not yet***]()
+        
+        * [More information on `How to Create New Operators`](https://mxnet.incubator.apache.org/how_to/new_op.html)
+
+>## ***Topic 2 : Imperative Programming***
 
 * ### ***Neural Networks With <NDArray.API + Autograd Package>***
 
@@ -168,7 +174,7 @@ print mx.asnumpy(out)
 
         * ***Using Block when Designing a `Custom Layer` - Flexible use of Gluon***
 
-            * [***Convolution Neural Network with Block or HybridBlock : Classifying the MNIST , CIFAR10 , Fashion_MNIST data - not yet***]()
+            * [***Convolution Neural Network with Block or HybridBlock : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Convolution_Neural_Network_with_Block)
 
                 * [More information on `block` and `hybridblock`](http://thestraightdope.mxnet.io/chapter07_distributed-learning/hybridize.html) 
         
@@ -176,7 +182,7 @@ print mx.asnumpy(out)
 
     * [***Predicting lotto numbers in regression analysis - not yet***]()
         
-    * [***Paint-Mxnet - not yet***]()
+    * [***Paint-Mxnet - with toy data(Not yet determined.)***]()
 
 >## ***Development environment***
 * os : ```window 10.1 64bit``` and ```Ubuntu linux 16.04.2 LTS only for tensorboard``` 
