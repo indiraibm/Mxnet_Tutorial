@@ -77,11 +77,11 @@ def NeuralNet(epoch,batch_size,save_period,load_weights):
     mod = mx.mod.Module(symbol=result, data_names=['input'],label_names=['input_'], context=mx.gpu(0))
     mod.bind(data_shapes=train_iter.provide_data,label_shapes=train_iter.provide_label)
 
-    weghts_path="weights/mod-{}.params".format(load_weights)
+    weights_path="weights/mod-{}.params".format(load_weights)
 
-    if os.path.exists(weghts_path) : 
+    if os.path.exists(weights_path) : 
         print("Load weights")
-        mod.load_params(weghts_path)
+        mod.load_params(weights_path)
     else :
         #mod.init_params(initializer=mx.initializer.Xavier(rnd_type='uniform', factor_type='avg', magnitude=3))
         mod.init_params(initializer=mx.initializer.Uniform(scale=1))

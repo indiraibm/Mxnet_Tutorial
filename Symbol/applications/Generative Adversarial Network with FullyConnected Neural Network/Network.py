@@ -114,11 +114,11 @@ def GAN(epoch,noise_size,batch_size,save_period,load_weights):
     modG.bind(data_shapes=[('noise', (batch_size, noise_size))], label_shapes=None, for_training=True)
 
     #load the saved modG data
-    G_weghts_path="weights/modG-{}.params".format(load_weights)
+    G_weights_path="weights/modG-{}.params".format(load_weights)
 
-    if os.path.exists(G_weghts_path) :
+    if os.path.exists(G_weights_path) :
         print("Load Generator weights")
-        modG.load_params(G_weghts_path)
+        modG.load_params(G_weights_path)
     else :
         modG.init_params(initializer=mx.initializer.Normal(sigma=0.01))
 
@@ -129,10 +129,10 @@ def GAN(epoch,noise_size,batch_size,save_period,load_weights):
     modD_0.bind(data_shapes=train_iter.provide_data,label_shapes=None,for_training=True,inputs_need_grad=True)
 
     #load the saved modD_0 data
-    D_weghts_path="weights/modD_0-{}.params".format(load_weights)
-    if os.path.exists(D_weghts_path) :
+    D_weights_path="weights/modD_0-{}.params".format(load_weights)
+    if os.path.exists(D_weights_path) :
         print("Load Discriminator weights")
-        modD_0.load_params(D_weghts_path)
+        modD_0.load_params(D_weights_path)
     else :
         modD_0.init_params(initializer=mx.initializer.Normal(sigma=0.01))
 

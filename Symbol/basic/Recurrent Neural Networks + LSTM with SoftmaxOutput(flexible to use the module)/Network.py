@@ -95,16 +95,16 @@ def NeuralNet(epoch,batch_size,save_period,load_weights):
 
     #load the saved mod data
     if use_cudnn:
-        weghts_path="weights/Fused_mod-{}.params".format(load_weights)
+        weights_path="weights/Fused_mod-{}.params".format(load_weights)
     else:
-        weghts_path="weights/mod-{}.params".format(load_weights)
+        weights_path="weights/mod-{}.params".format(load_weights)
 
-    if os.path.exists(weghts_path) and  use_cudnn :
+    if os.path.exists(weights_path) and  use_cudnn :
         print("Fused Load weights")
-        mod.load_params(weghts_path)
-    elif os.path.exists(weghts_path) and  not use_cudnn  :
+        mod.load_params(weights_path)
+    elif os.path.exists(weights_path) and  not use_cudnn  :
         print("Load weights")
-        mod.load_params(weghts_path)
+        mod.load_params(weights_path)
     else :
         print("initializing weights")
         mod.init_params(initializer=mx.initializer.Xavier(rnd_type='uniform', factor_type='avg', magnitude=3))

@@ -19,7 +19,7 @@ import mxnet as mx
 import numpy as np
 
 out=mx.nd.ones((3,3),mx.gpu(0))
-print mx.asnumpy(out)
+print(mx.asnumpy(out))
 ```
 * The below code is the result of executing the above code
 ```
@@ -119,13 +119,7 @@ print mx.asnumpy(out)
         <Code execution example>  
         python main.py --state --epoch 100 --noise_size 100 --batch_size 200 --save_period 100 --dataset CIFAR10 --load_weights 100
         ```
-
-* ### ***A Deeper Understanding Of Symbol.API***
-
-    * [***How do I make a custom symbol function? - not yet***]()
         
-        * [More information on `How to Create New Operators`](https://mxnet.incubator.apache.org/how_to/new_op.html)
-
 >## ***Topic 2 : Imperative Programming***
 
 * ### ***Neural Networks With <NDArray.API + Autograd Package>***

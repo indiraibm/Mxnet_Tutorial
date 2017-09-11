@@ -232,26 +232,26 @@ def DCGAN(epoch,noise_size,batch_size,save_period,dataset,load_weights):
 
 
     if dataset == 'MNIST':
-        G_weghts_path = "MNIST_Weights/modG-{}.params".format(load_weights)
-        if os.path.exists(G_weghts_path) :
+        G_weights_path = "MNIST_Weights/modG-{}.params".format(load_weights)
+        if os.path.exists(G_weights_path) :
             print("Load Generator weights")
-            modG.load_params(G_weghts_path)
+            modG.load_params(G_weights_path)
         else :
             modG.init_params(initializer=mx.initializer.Normal(sigma=0.02))
 
     if dataset =='CIFAR10':
-        G_weghts_path = "CIFAR10_Weights/modG-{}.params".format(load_weights)
-        if os.path.exists(G_weghts_path) :
+        G_weights_path = "CIFAR10_Weights/modG-{}.params".format(load_weights)
+        if os.path.exists(G_weights_path) :
             print("Load Generator weights")
-            modG.load_params(G_weghts_path)
+            modG.load_params(G_weights_path)
         else :
             modG.init_params(initializer=mx.initializer.Normal(sigma=0.02))
 
     if dataset == 'ImageNet':
-        G_weghts_path = "ImageNet_Weights/modG-{}.params".format(load_weights)
-        if os.path.exists(G_weghts_path):
+        G_weights_path = "ImageNet_Weights/modG-{}.params".format(load_weights)
+        if os.path.exists(G_weights_path):
             print("Load Generator weights")
-            modG.load_params(G_weghts_path)
+            modG.load_params(G_weights_path)
         else:
             modG.init_params(initializer=mx.initializer.Normal(sigma=0.02))
 
@@ -262,26 +262,26 @@ def DCGAN(epoch,noise_size,batch_size,save_period,dataset,load_weights):
     modD_0.bind(data_shapes=train_iter.provide_data,label_shapes=None,for_training=True,inputs_need_grad=True)
 
     if dataset == 'MNIST':
-        D_weghts_path = "MNIST_Weights/modD_0-{}.params".format(load_weights)
-        if os.path.exists(D_weghts_path) :
+        D_weights_path = "MNIST_Weights/modD_0-{}.params".format(load_weights)
+        if os.path.exists(D_weights_path) :
             print("Load Generator weights")
-            modD_0.load_params(D_weghts_path)
+            modD_0.load_params(D_weights_path)
         else :
             modD_0.init_params(initializer=mx.initializer.Normal(sigma=0.02))
 
     if dataset =='CIFAR10':
-        D_weghts_path = "CIFAR10_Weights/modD_0-{}.params".format(load_weights)
-        if os.path.exists(D_weghts_path) :
+        D_weights_path = "CIFAR10_Weights/modD_0-{}.params".format(load_weights)
+        if os.path.exists(D_weights_path) :
             print("Load Generator weights")
-            modD_0.load_params(D_weghts_path)
+            modD_0.load_params(D_weights_path)
         else :
             modD_0.init_params(initializer=mx.initializer.Normal(sigma=0.02))
 
     if dataset == 'ImageNet':
-        D_weghts_path = "ImageNet_Weights/modD_0-{}.params".format(load_weights)
-        if os.path.exists(D_weghts_path):
+        D_weights_path = "ImageNet_Weights/modD_0-{}.params".format(load_weights)
+        if os.path.exists(D_weights_path):
             print("Load Generator weights")
-            modD_0.load_params(D_weghts_path)
+            modD_0.load_params(D_weights_path)
         else:
             modD_0.init_params(initializer=mx.initializer.Normal(sigma=0.02))
 
