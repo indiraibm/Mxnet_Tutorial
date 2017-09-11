@@ -176,7 +176,7 @@ print(mx.asnumpy(out))
 
     * [***Predicting lotto numbers in regression analysis - not yet***]()
         
-    * [***Paint-Mxnet - with toy data(Not yet determined)***]()
+    * [***Paint-Mxnet - not yet***]()
 
 >## ***Development environment***
 * os : ```window 10.1 64bit``` and ```Ubuntu linux 16.04.2 LTS only for tensorboard``` 
