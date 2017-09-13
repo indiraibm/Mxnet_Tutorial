@@ -119,7 +119,11 @@ print(mx.asnumpy(out))
         <Code execution example>  
         python main.py --state --epoch 100 --noise_size 100 --batch_size 200 --save_period 100 --dataset CIFAR10 --load_weights 100
         ```
-        
+* ### ***How to Create New Operators for Symbolic Operator? - Advanced***
+    * #### [References Page : It is insufficient.](https://mxnet.incubator.apache.org/how_to/new_op.html) 
+
+        * [***Fully Connected Neural Network with Custom LogisticRegressionOutput***]()
+
 >## ***Topic 2 : Imperative Programming***
 
 * ### ***Neural Networks With <NDArray.API + Autograd Package>***
