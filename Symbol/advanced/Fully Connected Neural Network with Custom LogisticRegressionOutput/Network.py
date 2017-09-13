@@ -17,21 +17,36 @@ class LogisticRegression(mx.operator.CustomOp):
 
     def forward(self, is_train, req, in_data, out_data, aux):
         '''
+        in_data[0] -> "input" shape -> (100,10)
         in_data[1] -> "label" shape -> (100,10)
         out_data[0] -> "output" shape -> (100,10)
         '''
-        self.assign(out_data[0], req[0], mx.nd.divide(1, (1 + mx.nd.exp(- in_data[0]))))
+        #method1
+        out_data[0][:]= mx.nd.divide(1, (1 + mx.nd.exp(- in_data[0]))) # [:]? In python, [:] means copy
+
+        #method2
+        """Helper function for assigning into dst depending on requirements."""
+        #if necessary
+        #self.assign(out_data[0], req[0], mx.nd.divide(1, (1 + mx.nd.exp(- in_data[0]))))
 
     def backward(self, req, out_grad, in_data, out_data, in_grad, aux):
-
         '''
+        in_data[0] -> "input" shape -> (100,10)
         in_data[1] -> "label" shape -> (100,10)
         out_data[0] -> "output" shape -> (100,10)
-        out_data[0].shape[1] -> in here, 10
         '''
-        #print(type(self.grad_scale))
-        Gradient = (out_data[0] - in_data[1])*self.grad_scale
-        self.assign(in_grad[0], req[0], mx.nd.array(Gradient))
+        sigmoid=mx.nd.divide(1, (1 + mx.nd.exp(-out_data[0])))
+        diff_sigmoid=mx.nd.multiply(sigmoid,(1-sigmoid))
+
+        #method1
+        #Mean square Error
+        in_grad[0][:] = (out_data[0] - in_data[1])*self.grad_scale*diff_sigmoid # [:]? In python, [:] means copy
+
+        #method2
+        """Helper function for assigning into dst depending on requirements."""
+        #if necessary
+        #self.assign(in_grad[0], req[0], (out_data[0] - in_data[1])*self.grad_scale*diff_sigmoid )
+
 
 #If you want to know more, go to mx.operator.CustomOpProp.
 @mx.operator.register("LogisticRegression")

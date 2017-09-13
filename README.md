@@ -124,6 +124,8 @@ print(mx.asnumpy(out))
 
         * [***Fully Connected Neural Network with Customized LogisticRegressionOutput***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/advanced/Fully%20Connected%20Neural%20Network%20with%20Custom%20LogisticRegressionOutput)
 
+        * [***Fully Connected Neural Network with Customized SoftmaxOutput***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/advanced/Fully%20Connected%20Neural%20Network%20with%20Custom%20SoftmaxOutput)
+
 >## ***Topic 2 : Imperative Programming***
 
 * ### ***Neural Networks With <NDArray.API + Autograd Package>***
