@@ -122,7 +122,7 @@ print(mx.asnumpy(out))
 * ### ***How to Create New Operators for Symbolic Operator? - Advanced***
     * #### [References Page : It is insufficient.](https://mxnet.incubator.apache.org/how_to/new_op.html) 
 
-        * [***Fully Connected Neural Network with Custom LogisticRegressionOutput***]()
+        * [***Fully Connected Neural Network with Customized LogisticRegressionOutput***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Symbol/advanced/Fully%20Connected%20Neural%20Network%20with%20Custom%20SoftmaxOutput(flexible%20to%20use%20the%20module))
 
 >## ***Topic 2 : Imperative Programming***
 
