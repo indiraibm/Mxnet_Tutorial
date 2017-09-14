@@ -17,9 +17,9 @@ class LogisticRegression(mx.operator.CustomOp):
 
     def forward(self, is_train, req, in_data, out_data, aux):
         '''
-        in_data[0] -> "input" shape -> (100,10)
-        in_data[1] -> "label" shape -> (100,10)
-        out_data[0] -> "output" shape -> (100,10)
+        in_data[0] -> "input" shape -> (batch size , the number of class)
+        in_data[1] -> "label" shape -> (batch size , the number of class)
+        out_data[0] -> "output" shape -> (batch size , the number of class)
         '''
         #method1
         out_data[0][:]= mx.nd.divide(1, (1 + mx.nd.exp(- in_data[0]))) # [:]? In python, [:] means copy
@@ -31,13 +31,12 @@ class LogisticRegression(mx.operator.CustomOp):
 
     def backward(self, req, out_grad, in_data, out_data, in_grad, aux):
         '''
-        in_data[0] -> "input" shape -> (100,10)
-        in_data[1] -> "label" shape -> (100,10)
-        out_data[0] -> "output" shape -> (100,10)
+        in_data[0] -> "input" shape -> (batch size , the number of class)
+        in_data[1] -> "label" shape -> (batch size , the number of class)
+        out_data[0] -> "output" shape -> (batch size , the number of class)
         '''
         sigmoid=mx.nd.divide(1, (1 + mx.nd.exp(-out_data[0])))
         diff_sigmoid=mx.nd.multiply(sigmoid,(1-sigmoid))
-
         #method1
         #Mean square Error
         in_grad[0][:] = (out_data[0] - in_data[1])*self.grad_scale*diff_sigmoid # [:]? In python, [:] means copy
@@ -234,7 +233,7 @@ def NeuralNet(epoch,batch_size,save_period,load_weights):
         result = test.predict(test_iter).asnumpy().argmax(axis=1)
         print("training_data : {}".format(mod.score(train_iter, ['mse', 'acc'])))
         print('accuracy during learning.  : {}%'.format(float(sum(test_lbl == result)) / len(result) * 100.0))
-        #print "cost value : {}".format(cost)
+        #print("cost value : {}".format(cost))
 
         if not os.path.exists("weights"):
             os.makedirs("weights")

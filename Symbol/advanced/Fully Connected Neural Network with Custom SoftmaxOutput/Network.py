@@ -17,12 +17,12 @@ class SoftmaxOutput(mx.operator.CustomOp):
 
     def forward(self, is_train, req, in_data, out_data, aux):
         '''
-        in_data[0] -> "input" shape -> (100,10)
-        in_data[1] -> "label" shape -> (100,10)
-        out_data[0] -> "output" shape -> (100,10)
+        in_data[0] -> "input" shape -> (batch size , the number of class)
+        in_data[1] -> "label" shape -> (batch size , the number of class)
+        out_data[0] -> "output" shape -> (batch size , the number of class)
         '''
         numerator = mx.nd.exp(in_data[0]-mx.nd.max(in_data[0])) # normalization
-        denominator = mx.nd.sum(numerator, axis=0 , keepdims=True , exclude=True)
+        denominator = mx.nd.nansum(numerator, axis=0 , keepdims=True , exclude=True)
 
         #method1
         out_data[0][:]= mx.nd.divide(numerator,denominator)
@@ -35,9 +35,9 @@ class SoftmaxOutput(mx.operator.CustomOp):
     def backward(self, req, out_grad, in_data, out_data, in_grad, aux):
 
         '''
-        in_data[1] -> "label" shape -> (100,10)
-        out_data[0] -> "output" shape -> (100,10)
-        out_data[0].shape[1] -> in here, 10
+        in_data[0] -> "input" shape -> (batch size , the number of class)
+        in_data[1] -> "label" shape -> (batch size , the number of class)
+        out_data[0] -> "output" shape -> (batch size , the number of class)
         '''
 
         #method1
@@ -117,11 +117,11 @@ def NeuralNet(epoch,batch_size,save_period,load_weights):
     label = mx.sym.Variable('one_hot_label')
 
     # first_hidden_layer
-    affine1 = mx.sym.FullyConnected(data=data,name='fc1',num_hidden=50)
+    affine1 = mx.sym.FullyConnected(data=data,name='fc1',num_hidden=100)
     hidden1 = mx.sym.Activation(data=affine1, name='sigmoid1', act_type="sigmoid")
 
     # two_hidden_layer
-    affine2 = mx.sym.FullyConnected(data=hidden1, name='fc2', num_hidden=50)
+    affine2 = mx.sym.FullyConnected(data=hidden1, name='fc2', num_hidden=100)
     hidden2 = mx.sym.Activation(data=affine2, name='sigmoid2', act_type="sigmoid")
 
     # output_layer

@@ -124,6 +124,7 @@ def FNN(epoch = 100 , batch_size=10, save_period=10 , load_period=100 , weight_d
     #optimizer
     def SGD(params, lr , wd , bs):
         for param in params:
+             print(np.shape(param))
              param -= ((lr * param.grad)/bs+wd*param)
 
     for i in tqdm(range(1,epoch+1,1)):
