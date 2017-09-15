@@ -11,6 +11,11 @@ logging.basicConfig(level=logging.INFO)
 #If you want to know more, go to mx.operator.CustomOp.
 class SoftmaxOutput(mx.operator.CustomOp):
 
+    '''
+    If you want fast speed
+    Proceed to mx.ndarray.function !!!
+    '''
+
     def __init__(self, grad_scale):
         #grad_scale -> str
         self.grad_scale = float(grad_scale) #You need to change type to int or float.

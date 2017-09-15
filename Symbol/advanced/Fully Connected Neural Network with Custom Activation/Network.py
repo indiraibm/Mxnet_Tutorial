@@ -8,8 +8,14 @@ logging.basicConfig(level=logging.INFO)
 
 '''Let's make my own layer in symbol.'''
 
+
+
 #If you want to know more, go to mx.operator.CustomOp.
 class Activation(mx.operator.CustomOp):
+    '''
+    If you want fast speed
+    Proceed to mx.ndarray.function !!!
+    '''
     def __init__(self,act_type):
         self.act_type=act_type
 
@@ -95,6 +101,11 @@ class ActivationProp(mx.operator.CustomOpProp):
         return Activation(self.act_type)
 
 class SoftmaxOutput(mx.operator.CustomOp):
+
+    '''
+    If you want fast speed
+    Proceed to mx.ndarray.function !!!
+    '''
 
     def __init__(self, grad_scale):
         #grad_scale -> str
