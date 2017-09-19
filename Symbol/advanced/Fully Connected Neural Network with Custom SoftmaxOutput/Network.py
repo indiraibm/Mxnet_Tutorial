@@ -122,11 +122,11 @@ def NeuralNet(epoch,batch_size,save_period,load_weights):
     label = mx.sym.Variable('one_hot_label')
 
     # first_hidden_layer
-    affine1 = mx.sym.FullyConnected(data=data,name='fc1',num_hidden=100)
+    affine1 = mx.sym.FullyConnected(data=data,name='fc1',num_hidden=50)
     hidden1 = mx.sym.Activation(data=affine1, name='sigmoid1', act_type="sigmoid")
 
     # two_hidden_layer
-    affine2 = mx.sym.FullyConnected(data=hidden1, name='fc2', num_hidden=100)
+    affine2 = mx.sym.FullyConnected(data=hidden1, name='fc2', num_hidden=50)
     hidden2 = mx.sym.Activation(data=affine2, name='sigmoid2', act_type="sigmoid")
 
     # output_layer

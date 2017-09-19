@@ -182,7 +182,7 @@ print(mx.asnumpy(out))
         
 * ### ***Neural Networks Applications***
 
-    * [***Predicting lotto numbers in regression analysis - not yet***]()
+    * [***Predicting lotto numbers in regression analysis***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Predicting_lotto_numbers_in_regression_analysis_using_Gluon)
         
     * [***Paint-Mxnet - not yet***]()
 
