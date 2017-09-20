@@ -20,7 +20,7 @@ def Prediction(test_data , network , ctx ):
         output = mx.nd.round(network(data))
         print(output.asnumpy()[0])
 
-def LottoNet(epoch = 10000 , batch_size=50, save_period=10000 , load_period=30000 ,optimizer="adam",learning_rate= 0.0009 , ctx=mx.gpu(0)):
+def LottoNet(epoch = 100 , batch_size=128, save_period=10 , load_period=100 ,optimizer="sgd",learning_rate= 0.001 , ctx=mx.gpu(0)):
 
     #Data Loading
     train_data, test_data = LOTTO(batch_size)
@@ -94,7 +94,7 @@ def LottoNet(epoch = 10000 , batch_size=50, save_period=10000 , load_period=3000
     return "optimization completed"
 
 if __name__ == "__main__":
-    LottoNet(epoch = 30000 , batch_size=50, save_period=30000 , load_period=30000 ,optimizer="sgd",learning_rate= 0.0009 , ctx=mx.gpu(0))
+    LottoNet(epoch = 30000 , batch_size=50, save_period=30000 , load_period=30000 ,optimizer="sgd",learning_rate= 0.01 , ctx=mx.gpu(0))
 else :
     print("Imported")
 
