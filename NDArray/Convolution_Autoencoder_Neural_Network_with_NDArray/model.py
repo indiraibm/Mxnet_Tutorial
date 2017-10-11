@@ -16,7 +16,7 @@ def MNIST(batch_size):
 
     #transform = lambda data, label: (data.astype(np.float32) / 255.0 , label) # data normalization
     train_data = gluon.data.DataLoader(gluon.data.vision.MNIST(root="MNIST" , train = True , transform = transform) , batch_size , shuffle=True , last_batch="rollover") #Loads data from a dataset and returns mini-batches of data.
-    test_data = gluon.data.DataLoader(gluon.data.vision.MNIST(root="MNIST", train = False , transform = transform) ,10000 , shuffle=True) #Loads data from a dataset and returns mini-batches of data.
+    test_data = gluon.data.DataLoader(gluon.data.vision.MNIST(root="MNIST", train = False , transform = transform) ,128 , shuffle=True) #Loads data from a dataset and returns mini-batches of data.
 
     return train_data , test_data
 
@@ -25,7 +25,7 @@ def FashionMNIST(batch_size):
 
     #transform = lambda data, label: (data.astype(np.float32) / 255.0 , label)
     train_data = gluon.data.DataLoader(gluon.data.vision.FashionMNIST(root="FashionMNIST", train = True, transform=transform) , batch_size , shuffle=True , last_batch="rollover") #Loads data from a dataset and returns mini-batches of data.
-    test_data = gluon.data.DataLoader(gluon.data.vision.FashionMNIST(root="FashionMNIST", train = False, transform=transform) , 10000 , shuffle=True) #Loads data from a dataset and returns mini-batches of data.
+    test_data = gluon.data.DataLoader(gluon.data.vision.FashionMNIST(root="FashionMNIST", train = False, transform=transform) , 128 , shuffle=True) #Loads data from a dataset and returns mini-batches of data.
 
     return train_data , test_data
 
