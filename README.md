@@ -174,7 +174,7 @@ print(mx.asnumpy(out))
 
             * [***Convolution Neural Network : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Convolution_Neural_Network_with_Gluon)
 
-            * [***Convolution Neural Network with Batch Normalization : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***]()
+            * [***Convolution Neural Network with Batch Normalization : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Convolution_Neural_Network_BN_with_Gluon)
 
             * [***Autoencoder Neural Networks : Using the MNIST and Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Autoencoder_Neural_Network_with_Gluon)
 

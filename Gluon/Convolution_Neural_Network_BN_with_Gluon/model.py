@@ -7,7 +7,6 @@ from tqdm import *
 import os
 
 def transform(data, label):
-    print("ddd")
     return nd.transpose(data.astype(np.float32), (2,0,1))/255.0, label.astype(np.float32)
 
 #MNIST dataset
@@ -82,25 +81,33 @@ def CNN(epoch = 100 , batch_size=128, save_period=10 , load_period=100 ,optimize
     •Backprop gradient
     •Update parameters with gradient descent.
     '''
-    gluon.nn.BatchNorm
 
     #Convolution Neural Network
     # formula : output_size=((input−weights+2*Padding)/Stride)+1
     # data size
     # MNIST,FashionMNIST = (batch size , 1 , 28 ,  28)
     # CIFAR = (batch size , 3 , 32 ,  32)
-    net = gluon.nn.Sequential() # stacks 'Block's sequentially
+    #net = gluon.nn.Sequential() # stacks 'Block's sequentially
+    net = gluon.nn.HybridSequential()# for faster learning
     with net.name_scope():
-        net.add(gluon.nn.Conv2D(channels=60 , kernel_size=(3,3) , strides=(1,1) , use_bias=True , activation="relu")) # MNIST : result = ( batch size , 60 , 26 , 26) , CIFAR10 : : result = ( batch size , 60 , 30 , 30)
+        net.add(gluon.nn.Conv2D(channels=60 , kernel_size=(3,3) , strides=(1,1) , use_bias=True )) # MNIST : result = ( batch size , 60 , 26 , 26) , CIFAR10 : : result = ( batch size , 60 , 30 , 30)
+        net.add(gluon.nn.BatchNorm(axis=1, momentum=0.9, epsilon=1e-05, center=True, scale=True, beta_initializer="zeros",gamma_initializer="ones", running_mean_initializer="zeros",running_variance_initializer="ones"))
+        net.add(gluon.nn.Activation("relu"))
         net.add(gluon.nn.MaxPool2D(pool_size=(2,2), strides=(2,2))) # MNIST : result = (batch size , 60 , 13 , 13) , CIFAR10 : result = (batch size , 60 , 15 , 15)
-        net.add(gluon.nn.Conv2D(channels=30 , kernel_size=(6,6) , strides=(1,1) , use_bias=True , activation="relu")) # MNIST :  result = ( batch size , 30 , 8 , 8), CIFAR10 :  result = ( batch size , 30 , 10 , 10)
+        net.add(gluon.nn.Conv2D(channels=30 , kernel_size=(6,6) , strides=(1,1) , use_bias=True)) # MNIST :  result = ( batch size , 30 , 8 , 8), CIFAR10 :  result = ( batch size , 30 , 10 , 10)
+        net.add(gluon.nn.BatchNorm(axis=1, momentum=0.9, epsilon=1e-05, center=True, scale=True, beta_initializer="zeros",gamma_initializer="ones", running_mean_initializer="zeros",running_variance_initializer="ones"))
+        net.add(gluon.nn.Activation("relu"))
         net.add(gluon.nn.MaxPool2D(pool_size=(2, 2), strides=(2, 2))) # MNIST : result = (batch size , 30 , 4 , 4) , CIFAR10 : result = (batch size , 30 , 5 , 5)
-        net.add(gluon.nn.Dense(units=120 , activation="sigmoid", use_bias=True , flatten=True)) 
-        net.add(gluon.nn.Dropout(0.2))
-        net.add(gluon.nn.Dense(units=64 , activation="sigmoid", use_bias=True))
-        net.add(gluon.nn.Dropout(0.2))
+        net.add(gluon.nn.Dense(units=120 , use_bias=True , flatten=True))
+        net.add(gluon.nn.BatchNorm(axis=1, momentum=0.9, epsilon=1e-05, center=True, scale=True, beta_initializer="zeros",gamma_initializer="ones", running_mean_initializer="zeros",running_variance_initializer="ones"))
+        net.add(gluon.nn.Activation("relu"))
+        net.add(gluon.nn.Dropout(0.0))
+        net.add(gluon.nn.Dense(units=64 , use_bias=True))
+        net.add(gluon.nn.BatchNorm(axis=1, momentum=0.9, epsilon=1e-05, center=True, scale=True, beta_initializer="zeros",gamma_initializer="ones", running_mean_initializer="zeros",running_variance_initializer="ones"))
+        net.add(gluon.nn.Activation("relu"))
+        net.add(gluon.nn.Dropout(0.0))
         net.add(gluon.nn.Dense(10,use_bias=True))
-
+    net.hybridize() # for faster learning
     #weights initialization
     if os.path.exists(path):
         print("loading weights")
