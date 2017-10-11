@@ -145,6 +145,12 @@ print(mx.asnumpy(out))
 
         * [***Convolution Neural Network : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Convolution_Neural_Network_with_NDArray)
 
+        * [***Convolution Neural Network With Batch Normalization(First Method) : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Convolution_Neural_Network_BN1_with_NDArray)
+
+        * [***Convolution Neural Network With Batch Normalization(second Method) : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Convolution_Neural_Network_BN2_with_NDArray)
+
+        * [***Convolution Neural Network With Builtin Batch Normalization : Classifying the MNIST , CIFAR10 , Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Convolution_Neural_Network_Using_builtin_BN_with_NDArray)
+
         * [***Autoencoder Neural Networks : Using the MNIST and Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Autoencoder_Neural_Network_with_NDArray)
 
         * [***Convolution Autoencoder Neural Networks : Using the MNIST and Fashion_MNIST data***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/NDArray/Convolution_Autoencoder_Neural_Network_with_NDArray)
