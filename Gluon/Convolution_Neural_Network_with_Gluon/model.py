@@ -141,7 +141,7 @@ def CNN(epoch = 100 , batch_size=128, save_period=10 , load_period=100 ,optimize
             if dataset=="MNIST":
                 net.save_params("weights/MNIST-{}.params".format(i))
 
-            if dataset=="FashionMNIST":
+            elif dataset=="FashionMNIST":
                 net.save_params("weights/FashionMNIST-{}.params".format(i))
 
             elif dataset=="CIFAR10":

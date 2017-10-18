@@ -72,23 +72,7 @@ def generate_image(data_iterator , network , ctx , dataset):
                 ax_r[j][i].imshow(np.reshape(data[i + j * column_size],(28,28)),cmap='gray')
         fig_r.savefig("Generate_Image/MNIST_real.png")
 
-    elif dataset=="FashionMNIST":
-        fig_g, ax_g = plt.subplots(row_size, column_size, figsize=(column_size, row_size))
-        fig_g.suptitle('FashionMNIST_generator')
-        for j in range(row_size):
-            for i in range(column_size):
-                ax_g[j][i].set_axis_off()
-                ax_g[j][i].imshow(np.reshape(output[i + j * column_size],(28,28)),cmap='gray')
-        fig_g.savefig("Generate_Image/FashionMNIST_generator.png")
-
-        '''real image visualization'''
-        fig_r, ax_r = plt.subplots(row_size, column_size, figsize=(column_size, row_size))
-        fig_r.suptitle('FashionMNIST_real')
-        for j in range(row_size):
-            for i in range(column_size):
-                ax_r[j][i].set_axis_off()
-                ax_r[j][i].imshow(np.reshape(data[i + j * column_size],(28,28)),cmap='gray')
-        fig_r.savefig("Generate_Image/FashionMNIST_real.png")
+ 
 
     plt.show()
 

@@ -191,8 +191,15 @@ print(mx.asnumpy(out))
 * ### ***Neural Networks Applications***
 
     * [***Predicting lotto numbers in regression analysis***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Predicting_lotto_numbers_in_regression_analysis_using_Gluon)
-        
+    
+    * [***Neural Style - not yet***]()
+
+    * [***Generative Adversarial Networks with CIFAR10 , FashionMNIST***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/DCGAN_with_Gluon)
+
+    * [***Pixel to Pixel Generative Adversarial Networks***]()
+
     * [***Paint-Mxnet - not yet***]()
+
 
 >## ***Development environment***
 * os : ```window 10.1 64bit``` and ```Ubuntu linux 16.04.2 LTS only for tensorboard``` 

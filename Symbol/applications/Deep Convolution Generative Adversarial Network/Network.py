@@ -149,7 +149,7 @@ def Generator(relu ='relu',tanh='tanh',fix_gamma=True,eps=1e-5 + 1e-12,no_bias=T
     #RESULT -> 128,64,32,32 (Batch_size,filter,height,width)
 
     ### not applying Batch Normalization to the generator output layer ###
-    g5 = mx.sym.Deconvolution(gact4, name='g5', kernel=(4,4), stride=(2,2), pad=(1,1), num_filter=3, no_bias=True) #weight -> (64x3x4x4)
+    g5 = mx.sym.Deconvolution(gact4, name='g5', kernel=(4,4), stride=(2,2), pad=(1,1), num_filter=3, no_bias=no_bias) #weight -> (64x3x4x4)
     g_out = mx.sym.Activation(g5, name='g_out', act_type=tanh) #(128,3,64,64)
 
     #RESULT -> 128,3,64,64 (Batch_size,filter,height,width)
@@ -178,7 +178,7 @@ def Discriminator(leaky ='leaky',sigmoid='sigmoid',fix_gamma=True,eps=1e-5 + 1e-
     dbn4 = mx.sym.BatchNorm(d4, name='dbn4', fix_gamma=fix_gamma, eps=eps)
     dact4 = mx.sym.LeakyReLU(dbn4 , act_type=leaky, slope=0.2 , name='leaky4') #(128,512,4,4)
 
-    d5 = mx.sym.Convolution(dact4, name='d5', kernel=(4,4), num_filter=1, no_bias=True) #(128,1,1,1)
+    d5 = mx.sym.Convolution(dact4, name='d5', kernel=(4,4), num_filter=1, no_bias=no_bias) #(128,1,1,1)
 
     '''For the discriminator, the last convolution layer is flattened and then fed into a single sigmoid output. '''
     d_out = mx.sym.Flatten(d5)
@@ -495,7 +495,7 @@ def DCGAN(epoch,noise_size,batch_size,save_period,dataset,load_weights):
     result = ((result+1.0)*127.5).astype(np.uint8)
 
     '''Convert the image size to 4 times'''
-    result = np.asarray([[cv2.resize(i, None, fx=2, fy=2, interpolation=cv2.INTER_AREA) for i in im] for im in result])
+    result = np.asarray([[cv2.resize(i, None, fx=2, fy=2, interpolation=cv2.INTER_CUBIC) for i in im] for im in result])
 
     result = result.transpose((0, 2, 3, 1))
     '''visualization'''
