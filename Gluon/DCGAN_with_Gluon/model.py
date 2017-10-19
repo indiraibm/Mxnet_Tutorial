@@ -32,10 +32,10 @@ class Generator(gluon.HybridBlock):
             self.Deconv5=gluon.nn.Conv2DTranspose(channels=3,kernel_size=(4,4), strides=(2,2), padding=(1,1), use_bias=False, activation='tanh') # activation : tanh
 
     def hybrid_forward(self , F, x):
-        x = F.relu(self.BatchNorm1(self.Deconv1(x))) #(batch_size , 1024 , 4, 4)
-        x = F.relu(self.BatchNorm2(self.Deconv2(x))) #(batch_size , 512 , 8 , 8)
-        x = F.relu(self.BatchNorm3(self.Deconv3(x))) #(batch_size , 256 , 16 , 16)
-        x = F.relu(self.BatchNorm4(self.Deconv4(x))) #(batch_size , 128 , 32 , 32)
+        x = F.relu(self.BatchNorm1(self.Deconv1(x))) #(batch_size , 512 , 4, 4)
+        x = F.relu(self.BatchNorm2(self.Deconv2(x))) #(batch_size , 256 , 8 , 8)
+        x = F.relu(self.BatchNorm3(self.Deconv3(x))) #(batch_size , 128 , 16 , 16)
+        x = F.relu(self.BatchNorm4(self.Deconv4(x))) #(batch_size , 64 , 32 , 32)
         x = self.Deconv5(x)  # (batch_size , 3 , 64 , 64) # not applying batchnorm to the generator output : referenced by paper
         return x
 
@@ -58,10 +58,10 @@ class Discriminator(gluon.HybridBlock):
             self.conv5=gluon.nn.Conv2D(channels=1,kernel_size=(4,4), strides=(1,1), padding=(0,0), use_bias=False, activation=None)
 
     def hybrid_forward(self , F, x):
-        x = F.LeakyReLU(self.conv1(x), slope=0.2) #(batch_size , 128 , 32, 32)
-        x = F.LeakyReLU(self.BatchNorm2(self.conv2(x)), slope=0.2) #(batch_size , 256 , 16 , 16)
-        x = F.LeakyReLU(self.BatchNorm3(self.conv3(x)), slope=0.2) #(batch_size , 512 , 8 , 8)
-        x = F.LeakyReLU(self.BatchNorm4(self.conv4(x)), slope=0.2) #(batch_size , 1024 , 4 , 4)
+        x = F.LeakyReLU(self.conv1(x), slope=0.2) #(batch_size , 64 , 32, 32)
+        x = F.LeakyReLU(self.BatchNorm2(self.conv2(x)), slope=0.2) #(batch_size , 128 , 16 , 16)
+        x = F.LeakyReLU(self.BatchNorm3(self.conv3(x)), slope=0.2) #(batch_size , 256 , 8 , 8)
+        x = F.LeakyReLU(self.BatchNorm4(self.conv4(x)), slope=0.2) #(batch_size , 512 , 4 , 4)
         x = self.conv5(x) #(batch_size , 1 , 1 , 1)
         x = F.Flatten(x) #(batch_size,1)
         return x

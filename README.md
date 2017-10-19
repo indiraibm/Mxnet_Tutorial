@@ -196,7 +196,9 @@ print(mx.asnumpy(out))
 
     * [***Generative Adversarial Networks with CIFAR10 , FashionMNIST***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/DCGAN_with_Gluon)
 
-    * [***Pixel to Pixel Generative Adversarial Networks***]()
+    * [***Generative Adversarial Networks Targeting with CIFAR10 , MNIST***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/DCGAN_target_with_Gluon)
+
+    * [***Pixel to Pixel Generative Adversarial Networks - not yet***]()
 
     * [***Paint-Mxnet - not yet***]()
 
