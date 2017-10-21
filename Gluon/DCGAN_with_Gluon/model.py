@@ -101,8 +101,9 @@ def FashionMNIST(batch_size):
 #evaluate the data
 def generate_image(generator , ctx , dataset):
 
+    # column_size x row_size
     column_size=10
-    row_size=10 #     column_size x row_size <= 10000
+    row_size=10
 
     generated_image=generator(Noise(batch_size=column_size*row_size, ctx=ctx))
     generated_image = ((generated_image+1)*127.5).astype("uint8")
