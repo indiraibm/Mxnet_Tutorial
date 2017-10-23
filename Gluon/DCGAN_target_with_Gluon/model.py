@@ -15,27 +15,27 @@ import os
     The Deconvolution formula is output_size = stride(input_size-1)+kernel-2*pad
 '''
 def Noise(batch_size=None,ctx=None):
-    return nd.random_uniform(low=-1, high=1, shape=(batch_size, 95, 1, 1), ctx=ctx)
+    return nd.random_uniform(low=-1, high=1, shape=(batch_size, 100, 1, 1), ctx=ctx)
 
 class Generator(gluon.HybridBlock):
     def __init__(self , **kwargs):
         super(Generator , self).__init__(**kwargs)
         with self.name_scope():
-            self.Deconv1=gluon.nn.Conv2DTranspose(channels=256, kernel_size=(4,4), strides=(1,1), padding=(0,0), use_bias=False, activation=None)
+            self.Deconv1=gluon.nn.Conv2DTranspose(channels=512, kernel_size=(4,4), strides=(1,1), padding=(0,0), use_bias=False, activation=None)
             self.BatchNorm1=gluon.nn.BatchNorm(axis=1, momentum=0.9, epsilon=1e-5, center=True, scale=True) #()
-            self.Deconv2=gluon.nn.Conv2DTranspose(channels=128, kernel_size=(4,4), strides=(2,2), padding=(1,1), use_bias=False, activation=None)
+            self.Deconv2=gluon.nn.Conv2DTranspose(channels=256, kernel_size=(4,4), strides=(2,2), padding=(1,1), use_bias=False, activation=None)
             self.BatchNorm2 = gluon.nn.BatchNorm(axis=1, momentum=0.9, epsilon=1e-5, center=True, scale=True)
-            self.Deconv3=gluon.nn.Conv2DTranspose(channels=64, kernel_size=(4,4), strides=(2,2), padding=(1,1), use_bias=False, activation=None)
+            self.Deconv3=gluon.nn.Conv2DTranspose(channels=128, kernel_size=(4,4), strides=(2,2), padding=(1,1), use_bias=False, activation=None)
             self.BatchNorm3 = gluon.nn.BatchNorm(axis=1, momentum   =0.9, epsilon=1e-5, center=True, scale=True)
-            self.Deconv4=gluon.nn.Conv2DTranspose(channels=32,kernel_size=(4,4), strides=(2,2), padding=(1,1), use_bias=False, activation=None)
+            self.Deconv4=gluon.nn.Conv2DTranspose(channels=64,kernel_size=(4,4), strides=(2,2), padding=(1,1), use_bias=False, activation=None)
             self.BatchNorm4 = gluon.nn.BatchNorm(axis=1, momentum=0.9, epsilon=1e-5, center=True, scale=True)
             self.Deconv5=gluon.nn.Conv2DTranspose(channels=3,kernel_size=(4,4), strides=(2,2), padding=(1,1), use_bias=False, activation='tanh') # activation : tanh
 
     def hybrid_forward(self , F, x):
-        x = F.relu(self.BatchNorm1(self.Deconv1(x))) #(batch_size , 128, 4, 4)
-        x = F.relu(self.BatchNorm2(self.Deconv2(x))) #(batch_size , 64 , 8 , 8)
-        x = F.relu(self.BatchNorm3(self.Deconv3(x))) #(batch_size , 32 , 16 , 16)
-        x = F.relu(self.BatchNorm4(self.Deconv4(x))) #(batch_size , 16 , 32 , 32)
+        x = F.relu(self.BatchNorm1(self.Deconv1(x))) #(batch_size , 512, 4, 4)
+        x = F.relu(self.BatchNorm2(self.Deconv2(x))) #(batch_size , 256 , 8 , 8)
+        x = F.relu(self.BatchNorm3(self.Deconv3(x))) #(batch_size , 128 , 16 , 16)
+        x = F.relu(self.BatchNorm4(self.Deconv4(x))) #(batch_size , 64 , 32 , 32)
         x = self.Deconv5(x)  # (batch_size , 3 , 64 , 64) # not applying batchnorm to the generator output : referenced by paper
         return x
 
@@ -48,12 +48,12 @@ class Discriminator(gluon.HybridBlock):
     def __init__(self, **kwargs):
         super(Discriminator, self).__init__(**kwargs)
         with self.name_scope():
-            self.conv1=gluon.nn.Conv2D(channels=32, kernel_size=(4,4), strides=(2,2), padding=(1,1), use_bias=False, activation=None)
-            self.conv2=gluon.nn.Conv2D(channels=64, kernel_size=(4,4), strides=(2,2), padding=(1,1), use_bias=False, activation=None)
+            self.conv1=gluon.nn.Conv2D(channels=64, kernel_size=(4,4), strides=(2,2), padding=(1,1), use_bias=False, activation=None)
+            self.conv2=gluon.nn.Conv2D(channels=128, kernel_size=(4,4), strides=(2,2), padding=(1,1), use_bias=False, activation=None)
             self.BatchNorm2 = gluon.nn.BatchNorm(axis=1, momentum=0.9, epsilon=1e-5, center=True, scale=True)
-            self.conv3=gluon.nn.Conv2D(channels=128, kernel_size=(4,4), strides=(2,2), padding=(1,1), use_bias=False, activation=None)
+            self.conv3=gluon.nn.Conv2D(channels=256, kernel_size=(4,4), strides=(2,2), padding=(1,1), use_bias=False, activation=None)
             self.BatchNorm3 = gluon.nn.BatchNorm(axis=1, momentum=0.9, epsilon=1e-5, center=True, scale=True)
-            self.conv4=gluon.nn.Conv2D(channels=256,kernel_size=(4,4), strides=(2,2), padding=(1,1), use_bias=False, activation=None)
+            self.conv4=gluon.nn.Conv2D(channels=512,kernel_size=(4,4), strides=(2,2), padding=(1,1), use_bias=False, activation=None)
             self.BatchNorm4 = gluon.nn.BatchNorm(axis=1, momentum=0.9, epsilon=1e-5, center=True, scale=True)
             self.conv5=gluon.nn.Conv2D(channels=1,kernel_size=(4,4), strides=(1,1), padding=(0,0), use_bias=False, activation=None)
 
@@ -106,9 +106,9 @@ def generate_image(generator , ctx , dataset):
 
     label = nd.arange(10 , repeat=10 , ctx=ctx)  # size = (column_size x row_size,)
     label = label.reshape((-1, 1, 1, 1))  # transform 4d
-    label = nd.tile(label, reps=(1, 5 , 1, 1))
+    label = nd.tile(label, reps=(1, 100 , 1, 1))
     noise = Noise(batch_size=column_size*row_size, ctx=ctx)
-    target_noise = nd.concat(label,noise,dim=1)
+    target_noise = nd.add(label, noise)
 
     generated_image = ((generator(target_noise)+1)*127.5).astype("uint8")
     generated_image = [[cv2.resize(i, None, fx=2, fy=2, interpolation=cv2.INTER_CUBIC) for i in image] for image in generated_image.asnumpy()]
@@ -206,13 +206,14 @@ def DCGAN(epoch = 100, batch_size=128, save_period=10, load_period=100, optimize
 
     for i in tqdm(range(1,epoch+1,1)):
         for data , label in train_data:
-            #plus target channel -> (batch_size , 4 , 64 , 64)
-            data = data.as_in_context(ctx)
+            data = data.as_in_context(ctx) # (batch_size , 3 , 64 , 64)
             label=label.as_in_context(ctx) # -> (batch_size,)
             label=label.reshape((-1,1,1,1)) # - transform 4d
-            label = nd.tile(label, reps=(1, 5, 1, 1))
+
+            '''!!!!Target!!!!!'''
+            label = nd.tile(label, reps=(1, 100, 1, 1))
             noise=Noise(batch_size=batch_size, ctx=ctx)
-            target_noise = nd.concat(label,noise, dim=1)
+            target_noise = nd.add(label,noise)
 
             #1. Discriminator : (1)maximize Log(D(x)) + (2)Log(1-D(G(z)))
             with autograd.record(train_mode=True):
