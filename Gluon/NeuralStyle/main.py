@@ -1,0 +1,1 @@
+import modelimport mxnet as mx# content_a  / style_b = 1/1000content_image=" "style_image=" "#if epoch=0 -> Testresult=model.NeuralStyle(epoch = 100 , save_period=100 , load_period=100 ,optimizer="adam", learning_rate= 0.001 , content_image= content_image , style_image=style_image  , content_a = 1 , style_b = 1000  , ctx=mx.cpu(0))

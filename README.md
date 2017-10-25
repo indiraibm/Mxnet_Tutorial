@@ -192,7 +192,7 @@ print(mx.asnumpy(out))
 
     * [***Predicting lotto numbers in regression analysis***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/Predicting_lotto_numbers_in_regression_analysis_using_Gluon)
     
-    * [***Neural Style - not yet***]()
+    * [***Neural Style - Proceeding***]()
 
     * [***Generative Adversarial Networks with CIFAR10 , FashionMNIST***](https://github.com/JONGGON/Mxnet_Tutorial/tree/master/Gluon/DCGAN_with_Gluon)
 
