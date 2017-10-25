@@ -200,7 +200,7 @@ print(mx.asnumpy(out))
 
     * [***Pixel to Pixel Generative Adversarial Networks - not yet***]()
 
-    * [***Paint-Mxnet - not yet***]()
+    * I plan to continue various projects in the future.!!!!!
 
 
 >## ***Development environment***
